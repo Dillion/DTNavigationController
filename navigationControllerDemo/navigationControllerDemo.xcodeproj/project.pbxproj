@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		747B087D1A675050005E727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087C1A675050005E727C /* main.m */; };
 		747B08801A675050005E727C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087F1A675050005E727C /* AppDelegate.m */; };
-		747B08831A675050005E727C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08821A675050005E727C /* ViewController.m */; };
+		747B08831A675050005E727C /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08821A675050005E727C /* AViewController.m */; };
 		747B08861A675050005E727C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747B08841A675050005E727C /* Main.storyboard */; };
 		747B08881A675050005E727C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747B08871A675050005E727C /* Images.xcassets */; };
 		747B088B1A675050005E727C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747B08891A675050005E727C /* LaunchScreen.xib */; };
@@ -19,6 +19,9 @@
 		7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31B1A68BB31002C4347 /* DTToolbar.m */; };
 		7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31E1A68BE33002C4347 /* DTNavigationBar.m */; };
 		7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */; };
+		7493F32B1A6910BE002C4347 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F32A1A6910BE002C4347 /* BViewController.m */; };
+		7493F3341A691FC1002C4347 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3321A691FC1002C4347 /* NavigationView.m */; };
+		7493F3351A691FC1002C4347 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7493F3331A691FC1002C4347 /* NavigationView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +40,8 @@
 		747B087C1A675050005E727C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		747B087E1A675050005E727C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		747B087F1A675050005E727C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		747B08811A675050005E727C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		747B08821A675050005E727C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		747B08811A675050005E727C /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
+		747B08821A675050005E727C /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
 		747B08851A675050005E727C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		747B08871A675050005E727C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		747B088A1A675050005E727C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -55,6 +58,11 @@
 		7493F31E1A68BE33002C4347 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationBar.m; sourceTree = "<group>"; };
 		7493F3261A68F40F002C4347 /* UIViewController+DTNavigationItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTNavigationItems.h"; sourceTree = "<group>"; };
 		7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTNavigationItems.m"; sourceTree = "<group>"; };
+		7493F3291A6910BE002C4347 /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		7493F32A1A6910BE002C4347 /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
+		7493F3311A691FC1002C4347 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
+		7493F3321A691FC1002C4347 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
+		7493F3331A691FC1002C4347 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +107,10 @@
 				747B08A01A67506B005E727C /* DTNavigationController */,
 				747B087E1A675050005E727C /* AppDelegate.h */,
 				747B087F1A675050005E727C /* AppDelegate.m */,
-				747B08811A675050005E727C /* ViewController.h */,
-				747B08821A675050005E727C /* ViewController.m */,
+				747B08811A675050005E727C /* AViewController.h */,
+				747B08821A675050005E727C /* AViewController.m */,
+				7493F3291A6910BE002C4347 /* BViewController.h */,
+				7493F32A1A6910BE002C4347 /* BViewController.m */,
 				747B08841A675050005E727C /* Main.storyboard */,
 				747B08871A675050005E727C /* Images.xcassets */,
 				747B08891A675050005E727C /* LaunchScreen.xib */,
@@ -138,6 +148,9 @@
 		747B08A01A67506B005E727C /* DTNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				7493F3311A691FC1002C4347 /* NavigationView.h */,
+				7493F3321A691FC1002C4347 /* NavigationView.m */,
+				7493F3331A691FC1002C4347 /* NavigationView.xib */,
 				7493F31D1A68BE33002C4347 /* DTNavigationBar.h */,
 				7493F31E1A68BE33002C4347 /* DTNavigationBar.m */,
 				7493F31A1A68BB31002C4347 /* DTToolbar.h */,
@@ -234,6 +247,7 @@
 			files = (
 				747B08861A675050005E727C /* Main.storyboard in Resources */,
 				747B088B1A675050005E727C /* LaunchScreen.xib in Resources */,
+				7493F3351A691FC1002C4347 /* NavigationView.xib in Resources */,
 				747B08881A675050005E727C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,13 +266,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				747B08831A675050005E727C /* ViewController.m in Sources */,
+				747B08831A675050005E727C /* AViewController.m in Sources */,
 				7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
 				7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */,
+				7493F32B1A6910BE002C4347 /* BViewController.m in Sources */,
 				747B08A61A67506B005E727C /* DTNavigationController.m in Sources */,
 				747B08A51A67506B005E727C /* DTAnimationController.m in Sources */,
 				747B087D1A675050005E727C /* main.m in Sources */,
+				7493F3341A691FC1002C4347 /* NavigationView.m in Sources */,
 				7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

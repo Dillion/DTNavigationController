@@ -81,6 +81,12 @@
     return nil;
 }
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationBar;
+    navigationBar.currentNavigationView = viewController.navigationView;
+}
+
 #pragma mark - Navigation Controller overrides
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

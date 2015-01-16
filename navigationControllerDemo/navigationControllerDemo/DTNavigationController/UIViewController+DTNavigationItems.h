@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NavigationView.h"
 
 @interface UIViewController (DTNavigationItems)
 
-@property (nonatomic, strong) UIView *navigationView;
+@property (nonatomic, strong) NavigationView *navigationView;
 
 @end

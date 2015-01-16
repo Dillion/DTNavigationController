@@ -7,6 +7,7 @@
 //
 
 #import "DTNavigationBar.h"
+#import "NavigationView.h"
 
 @interface DTNavigationBar() {
     CGFloat defaultHeight;
@@ -73,6 +74,27 @@
 - (void)cancelInteractiveTransition
 {
     
+}
+
+- (void)setCurrentNavigationView:(NavigationView *)currentNavigationView
+{
+    if (_currentNavigationView != currentNavigationView) {
+        [self hideNativeSubviews];
+        [_currentNavigationView removeFromSuperview];
+        [self addSubview:currentNavigationView];
+    }
+    _currentNavigationView = currentNavigationView;
+}
+
+// crappy hack to hide the default navigation bar title and bar button items
+- (void)hideNativeSubviews
+{
+    [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIView *view = (UIView *)obj;
+        if (![view isKindOfClass:[NavigationView class]] && [NSStringFromClass([view class]) compare:@"_UINavigationBarBackground"] != NSOrderedSame) {
+            view.hidden = YES;
+        }
+    }];
 }
 
 @end

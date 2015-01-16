@@ -26,7 +26,7 @@
         <!--View Controller-->
         <scene sceneID="5cj-lh-2GN">
             <objects>
-                <viewController id="az3-uO-Bwh" sceneMemberID="viewController">
+                <viewController id="az3-uO-Bwh" customClass="BViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VND-V2-d5c"/>
                         <viewControllerLayoutGuide type="bottom" id="wTr-mY-Qjm"/>
@@ -44,7 +44,7 @@
         <!--View Controller-->
         <scene sceneID="d5e-kl-7Zl">
             <objects>
-                <viewController id="mHa-pp-3lP" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="mHa-pp-3lP" customClass="AViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G1P-kb-jTk"/>
                         <viewControllerLayoutGuide type="bottom" id="gKA-p0-jIy"/>
