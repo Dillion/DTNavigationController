@@ -43,7 +43,7 @@
 
 - (void)commonInit
 {
-    self.transform = CGAffineTransformMakeTranslation(0, -(kDTNavigationBarHeightAdjustment));
+    
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
@@ -53,20 +53,6 @@
     barSize.height += kDTNavigationBarHeightAdjustment;
     
     return barSize;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    
-    [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([obj respondsToSelector:@selector(barStyle)]) {
-            UIView *view = (UIView *)obj;
-            CGRect frameRect = view.frame;
-            frameRect.size.height = defaultHeight + kDTNavigationBarHeightAdjustment;
-            view.frame = frameRect;
-        }
-    }];
 }
 
 @end
