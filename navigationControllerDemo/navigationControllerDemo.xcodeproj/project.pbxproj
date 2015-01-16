@@ -18,6 +18,7 @@
 		747B08A61A67506B005E727C /* DTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08A41A67506B005E727C /* DTNavigationController.m */; };
 		7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31B1A68BB31002C4347 /* DTToolbar.m */; };
 		7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31E1A68BE33002C4347 /* DTNavigationBar.m */; };
+		7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		7493F31B1A68BB31002C4347 /* DTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTToolbar.m; sourceTree = "<group>"; };
 		7493F31D1A68BE33002C4347 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationBar.h; sourceTree = "<group>"; };
 		7493F31E1A68BE33002C4347 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationBar.m; sourceTree = "<group>"; };
+		7493F3261A68F40F002C4347 /* UIViewController+DTNavigationItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTNavigationItems.h"; sourceTree = "<group>"; };
+		7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTNavigationItems.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				747B08A21A67506B005E727C /* DTAnimationController.m */,
 				747B08A31A67506B005E727C /* DTNavigationController.h */,
 				747B08A41A67506B005E727C /* DTNavigationController.m */,
+				7493F3261A68F40F002C4347 /* UIViewController+DTNavigationItems.h */,
+				7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */,
 			);
 			path = DTNavigationController;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				747B08831A675050005E727C /* ViewController.m in Sources */,
+				7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
 				7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */,
 				747B08A61A67506B005E727C /* DTNavigationController.m in Sources */,

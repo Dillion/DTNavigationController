@@ -55,4 +55,24 @@
     return barSize;
 }
 
+- (void)animateTransitionForNavigationView:(UIView *)fromView toNavigationView:(UIView *)toView
+{
+    
+}
+
+- (void)updateInteractiveTransition:(CGFloat)percentComplete
+{
+    
+}
+
+- (void)finishInteractiveTransition
+{
+    
+}
+
+- (void)cancelInteractiveTransition
+{
+    
+}
+
 @end

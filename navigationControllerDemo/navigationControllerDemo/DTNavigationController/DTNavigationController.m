@@ -9,6 +9,7 @@
 #import "DTNavigationController.h"
 #import "DTToolbar.h"
 #import "DTNavigationBar.h"
+#import "UIViewController+DTNavigationItems.h"
 
 @interface DTNavigationController ()
 
@@ -85,31 +86,39 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _animationController.animationType = Push;
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
     [super pushViewController:viewController animated:animated];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
     _animationController.animationType = Pop;
+    NSArray *viewControllerArray = [self viewControllers];
+    UIViewController *secondViewController = [viewControllerArray objectAtIndex:[viewControllerArray count]-2];
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:secondViewController.navigationView];
     return [super popViewControllerAnimated:animated];
 }
 
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _animationController.animationType = PopToView;
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
     return [super popToViewController:viewController animated:animated];
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
 {
     _animationController.animationType = PopToRoot;
+    UIViewController *rootViewControlller = [[self viewControllers] firstObject];
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:rootViewControlller.navigationView];
     return [super popToRootViewControllerAnimated:animated];
 }
 
-- (void)showViewController:(UIViewController *)vc sender:(id)sender
+- (void)showViewController:(UIViewController *)viewController sender:(id)sender
 {
     _animationController.animationType = Show;
-    [super showViewController:vc sender:sender];
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
+    [super showViewController:viewController sender:sender];
 }
 
 #pragma mark - Pop Gesture Recognizer
@@ -128,15 +137,18 @@
         }
         case UIGestureRecognizerStateChanged:
         {
+            [(DTNavigationBar *)self.navigationBar updateInteractiveTransition:fraction];
             [_animationController updateInteractiveTransition:fraction];
             break;
         }
         case UIGestureRecognizerStateEnded:
         {
             if (fraction >= 0.3) {
+                [(DTNavigationBar *)self.navigationBar finishInteractiveTransition];
                 [_animationController finishInteractiveTransition];
             }
             else {
+                [(DTNavigationBar *)self.navigationBar cancelInteractiveTransition];
                 [_animationController cancelInteractiveTransition];
             }
             self.interactive = NO;
@@ -144,6 +156,7 @@
         }
         case UIGestureRecognizerStateCancelled:
         {
+            [(DTNavigationBar *)self.navigationBar cancelInteractiveTransition];
             [_animationController cancelInteractiveTransition];
             self.interactive = YES;
             break;
