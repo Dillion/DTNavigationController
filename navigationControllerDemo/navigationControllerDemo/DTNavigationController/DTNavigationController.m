@@ -7,12 +7,31 @@
 //
 
 #import "DTNavigationController.h"
+#import "DTToolbar.h"
+#import "DTNavigationBar.h"
 
 @interface DTNavigationController ()
 
 @end
 
 @implementation DTNavigationController
+
+- (id)initWithRootViewController:(UIViewController *)rootViewController
+{
+    DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
+    [navigationController setViewControllers:@[rootViewController]];
+    return navigationController;
+}
+
+- (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
+{
+    if ([self.navigationBar isKindOfClass:[UINavigationBar class]]) {
+        DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
+        [navigationController setViewControllers:[self viewControllers]];
+        return navigationController;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

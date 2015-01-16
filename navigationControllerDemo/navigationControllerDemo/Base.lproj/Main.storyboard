@@ -7,11 +7,14 @@
         <!--Navigation Controller-->
         <scene sceneID="PjQ-5O-qPr">
             <objects>
-                <navigationController id="AwG-w4-yHQ" customClass="DTNavigationController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="AwG-w4-yHQ" customClass="DTNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A9M-Sy-yy1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="8gz-Or-pop">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="mHa-pp-3lP" kind="relationship" relationship="rootViewController" id="YDz-Qd-45D"/>
                     </connections>

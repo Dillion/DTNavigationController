@@ -16,6 +16,8 @@
 		747B08971A675050005E727C /* navigationControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08961A675050005E727C /* navigationControllerDemoTests.m */; };
 		747B08A51A67506B005E727C /* DTAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08A21A67506B005E727C /* DTAnimationController.m */; };
 		747B08A61A67506B005E727C /* DTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08A41A67506B005E727C /* DTNavigationController.m */; };
+		7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31B1A68BB31002C4347 /* DTToolbar.m */; };
+		7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31E1A68BE33002C4347 /* DTNavigationBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		747B08A21A67506B005E727C /* DTAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAnimationController.m; sourceTree = "<group>"; };
 		747B08A31A67506B005E727C /* DTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationController.h; sourceTree = "<group>"; };
 		747B08A41A67506B005E727C /* DTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationController.m; sourceTree = "<group>"; };
+		7493F31A1A68BB31002C4347 /* DTToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTToolbar.h; sourceTree = "<group>"; };
+		7493F31B1A68BB31002C4347 /* DTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTToolbar.m; sourceTree = "<group>"; };
+		7493F31D1A68BE33002C4347 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationBar.h; sourceTree = "<group>"; };
+		7493F31E1A68BE33002C4347 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,10 @@
 		747B08A01A67506B005E727C /* DTNavigationController */ = {
 			isa = PBXGroup;
 			children = (
+				7493F31D1A68BE33002C4347 /* DTNavigationBar.h */,
+				7493F31E1A68BE33002C4347 /* DTNavigationBar.m */,
+				7493F31A1A68BB31002C4347 /* DTToolbar.h */,
+				7493F31B1A68BB31002C4347 /* DTToolbar.m */,
 				747B08A11A67506B005E727C /* DTAnimationController.h */,
 				747B08A21A67506B005E727C /* DTAnimationController.m */,
 				747B08A31A67506B005E727C /* DTNavigationController.h */,
@@ -239,9 +249,11 @@
 			files = (
 				747B08831A675050005E727C /* ViewController.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
+				7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */,
 				747B08A61A67506B005E727C /* DTNavigationController.m in Sources */,
 				747B08A51A67506B005E727C /* DTAnimationController.m in Sources */,
 				747B087D1A675050005E727C /* main.m in Sources */,
+				7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +446,7 @@
 				747B089C1A675050005E727C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		747B089D1A675050005E727C /* Build configuration list for PBXNativeTarget "navigationControllerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +455,7 @@
 				747B089F1A675050005E727C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
