@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class NavigationView;
+@class DTNavigationView;
 
 static const CGFloat kDTNavigationBarHeightAdjustment = 40.0f;
 
 @interface DTNavigationBar : UINavigationBar
 
-@property (nonatomic, weak) NavigationView *currentNavigationView;
+@property (nonatomic, weak) DTNavigationView *currentNavigationView;
 
 - (void)animateTransitionForNavigationView:(UIView *)fromView toNavigationView:(UIView *)toView;
 - (void)updateInteractiveTransition:(CGFloat)percentComplete;

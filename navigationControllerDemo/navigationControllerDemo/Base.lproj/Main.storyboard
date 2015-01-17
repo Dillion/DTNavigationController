@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AwG-w4-yHQ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -24,24 +25,6 @@
             <point key="canvasLocation" x="-1698" y="264"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="5cj-lh-2GN">
-            <objects>
-                <viewController id="az3-uO-Bwh" customClass="BViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VND-V2-d5c"/>
-                        <viewControllerLayoutGuide type="bottom" id="wTr-mY-Qjm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mnC-9b-BwU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.80000001192092896" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dcL-4x-uN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-368" y="264"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="d5e-kl-7Zl">
             <objects>
                 <viewController id="mHa-pp-3lP" customClass="AViewController" sceneMemberID="viewController">
@@ -52,15 +35,33 @@
                     <view key="view" contentMode="scaleToFill" id="ItM-vH-uCt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rW-m0-A1A">
+                                <rect key="frame" x="26" y="530" width="548" height="60"/>
+                                <color key="backgroundColor" red="0.15294118225574493" green="0.79607850313186646" blue="0.32156863808631897" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="dwa-4i-QX8"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onButtonTapped:" destination="mHa-pp-3lP" eventType="touchUpInside" id="efu-IX-urN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gKA-p0-jIy" firstAttribute="top" secondItem="8rW-m0-A1A" secondAttribute="bottom" constant="10" id="5Lz-BC-fxK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8rW-m0-A1A" secondAttribute="trailing" constant="10" id="aYs-RN-5S1"/>
+                            <constraint firstItem="8rW-m0-A1A" firstAttribute="leading" secondItem="ItM-vH-uCt" secondAttribute="leadingMargin" constant="10" id="oRl-J7-c6F"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zNv-Os-zcK">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="GiX-4q-3Vn">
-                            <connections>
-                                <segue destination="az3-uO-Bwh" kind="show" id="FBg-ir-Rk3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="zNv-Os-zcK"/>
+                    <connections>
+                        <outlet property="button" destination="8rW-m0-A1A" id="Qzr-gZ-aiE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVg-6k-bdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

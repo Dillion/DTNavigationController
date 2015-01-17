@@ -9,19 +9,13 @@
 #import "AViewController.h"
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
+#import "BViewController.h"
 
 @interface AViewController ()
 
 @end
 
 @implementation AViewController
-
-//- (void)loadView
-//{
-//    self.navigationView = [[UIView alloc] init];
-//    self.navigationView.backgroundColor = [UIColor orangeColor];
-//    self.navigationView.translatesAutoresizingMaskIntoConstraints = NO;
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +27,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onButtonTapped:(id)sender {
+    BViewController *bViewController = [[BViewController alloc] initWithNibName:@"BViewController" bundle:nil];
+    [self.navigationController pushViewController:bViewController animated:YES];
 }
 
 @end

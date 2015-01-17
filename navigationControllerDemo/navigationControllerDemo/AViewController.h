@@ -10,6 +10,9 @@
 
 @interface AViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *button;
+
+- (IBAction)onButtonTapped:(id)sender;
 
 @end
 

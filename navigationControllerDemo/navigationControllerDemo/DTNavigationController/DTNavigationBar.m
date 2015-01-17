@@ -7,7 +7,7 @@
 //
 
 #import "DTNavigationBar.h"
-#import "NavigationView.h"
+#import "DTNavigationView.h"
 
 @interface DTNavigationBar() {
     CGFloat defaultHeight;
@@ -76,7 +76,7 @@
     
 }
 
-- (void)setCurrentNavigationView:(NavigationView *)currentNavigationView
+- (void)setCurrentNavigationView:(DTNavigationView *)currentNavigationView
 {
     if (_currentNavigationView != currentNavigationView) {
         [self hideNativeSubviews];
@@ -91,7 +91,7 @@
 {
     [self.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UIView *view = (UIView *)obj;
-        if (![view isKindOfClass:[NavigationView class]] && [NSStringFromClass([view class]) compare:@"_UINavigationBarBackground"] != NSOrderedSame) {
+        if (![view isKindOfClass:[DTNavigationView class]] && [NSStringFromClass([view class]) compare:@"_UINavigationBarBackground"] != NSOrderedSame) {
             view.hidden = YES;
         }
     }];

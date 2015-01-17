@@ -13,12 +13,12 @@ static char const *const NavigationViewKey = "NavigationViewKey";
 
 @implementation UIViewController (DTNavigationItems)
 
-- (NavigationView *)navigationView
+- (DTNavigationView *)navigationView
 {
     return objc_getAssociatedObject(self, NavigationViewKey);
 }
 
-- (void)setNavigationView:(NavigationView *)navigationView
+- (void)setNavigationView:(DTNavigationView *)navigationView
 {
     objc_setAssociatedObject(self, NavigationViewKey, navigationView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
