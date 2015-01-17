@@ -7,6 +7,7 @@
 //
 
 #import "NavigationView.h"
+#import "navigationControllerDemo-Swift.h"
 
 @implementation NavigationView
 
@@ -26,6 +27,7 @@
     
     // can't add constraints to navigation bar ... so let's use autoresizing masks instead to fill to the edges
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    self.navigationButton.color = [UIColor orangeColor];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder

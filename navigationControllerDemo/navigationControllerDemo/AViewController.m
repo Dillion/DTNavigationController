@@ -9,6 +9,7 @@
 #import "AViewController.h"
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
+#import "navigationControllerDemo-Swift.h"
 #import "BViewController.h"
 
 @interface AViewController ()
@@ -32,6 +33,12 @@
 - (IBAction)onButtonTapped:(id)sender {
     BViewController *bViewController = [[BViewController alloc] initWithNibName:@"BViewController" bundle:nil];
     [self.navigationController pushViewController:bViewController animated:YES];
+}
+
+- (void)performAnimation
+{
+    NavigationView *navigationView = (NavigationView *)self.navigationView;
+    navigationView.navigationButton.showsMenu = NO;
 }
 
 @end

@@ -56,9 +56,9 @@
     return barSize;
 }
 
-- (void)animateTransitionForNavigationView:(UIView *)fromView toNavigationView:(UIView *)toView
+- (void)animateTransitionForNavigationView:(DTNavigationView *)fromView toNavigationView:(DTNavigationView *)toView
 {
-    
+    [toView.animationDelegate performAnimation];
 }
 
 - (void)updateInteractiveTransition:(CGFloat)percentComplete

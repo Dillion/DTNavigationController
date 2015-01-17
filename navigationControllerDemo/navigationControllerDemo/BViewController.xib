@@ -13,7 +13,7 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.60392159223556519" green="0.91372555494308472" blue="0.57254904508590698" alpha="1" colorSpace="deviceRGB"/>
         </view>
     </objects>
 </document>

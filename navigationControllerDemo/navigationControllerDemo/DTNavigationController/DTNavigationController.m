@@ -85,6 +85,7 @@
 {
     DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationBar;
     navigationBar.currentNavigationView = viewController.navigationView;
+    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:nil toNavigationView:viewController.navigationView];
 }
 
 #pragma mark - Navigation Controller overrides
@@ -92,38 +93,30 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _animationController.animationType = Push;
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
     [super pushViewController:viewController animated:animated];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
     _animationController.animationType = Pop;
-    NSArray *viewControllerArray = [self viewControllers];
-    UIViewController *secondViewController = [viewControllerArray objectAtIndex:[viewControllerArray count]-2];
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:secondViewController.navigationView];
     return [super popViewControllerAnimated:animated];
 }
 
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     _animationController.animationType = PopToView;
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
     return [super popToViewController:viewController animated:animated];
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated
 {
     _animationController.animationType = PopToRoot;
-    UIViewController *rootViewControlller = [[self viewControllers] firstObject];
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:rootViewControlller.navigationView];
     return [super popToRootViewControllerAnimated:animated];
 }
 
 - (void)showViewController:(UIViewController *)viewController sender:(id)sender
 {
     _animationController.animationType = Show;
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:self.topViewController.navigationView toNavigationView:viewController.navigationView];
     [super showViewController:viewController sender:sender];
 }
 

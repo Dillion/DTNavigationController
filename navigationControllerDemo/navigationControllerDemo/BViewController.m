@@ -9,8 +9,9 @@
 #import "BViewController.h"
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
+#import "navigationControllerDemo-Swift.h"
 
-@interface BViewController ()
+@interface BViewController () <NavigationViewAnimating>
 
 @end
 
@@ -21,7 +22,7 @@
     // Do any additional setup after loading the view.
     
     NavigationView *navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
-    [navigationView.navigationButton setTitle:@"Back" forState:UIControlStateNormal];
+    navigationView.animationDelegate = self;
     [navigationView.navigationButton addTarget:self action:@selector(onBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationView = navigationView;
 }
@@ -59,6 +60,12 @@
 - (void)onBackButtonPressed:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)performAnimation
+{
+    NavigationView *navigationView = (NavigationView *)self.navigationView;
+    navigationView.navigationButton.showsMenu = YES;
 }
 
 @end
