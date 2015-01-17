@@ -20,7 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+    NavigationView *navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+    [navigationView.navigationButton setTitle:@"Back" forState:UIControlStateNormal];
+    [navigationView.navigationButton addTarget:self action:@selector(onBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationView = navigationView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +54,11 @@
         [self commonInit];
     }
     return self;
+}
+
+- (void)onBackButtonPressed:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

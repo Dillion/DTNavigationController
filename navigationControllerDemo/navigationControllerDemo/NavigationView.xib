@@ -5,10 +5,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DTNavigationView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationView">
             <connections>
                 <outlet property="descripLabel" destination="zWE-wD-jbE" id="grN-R9-EGB"/>
                 <outlet property="iconView" destination="25b-jU-oTy" id="xXB-FV-Uc4"/>
+                <outlet property="navigationButton" destination="S5V-ng-Sqt" id="zrp-Ql-25M"/>
                 <outlet property="titleLabel" destination="dGd-7X-Gul" id="Uej-fb-Nyb"/>
             </connections>
         </placeholder>
