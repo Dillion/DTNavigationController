@@ -85,7 +85,6 @@
 {
     DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationBar;
     navigationBar.currentNavigationView = viewController.navigationView;
-    [(DTNavigationBar *)self.navigationBar animateTransitionForNavigationView:nil toNavigationView:viewController.navigationView];
 }
 
 #pragma mark - Navigation Controller overrides
@@ -136,18 +135,15 @@
         }
         case UIGestureRecognizerStateChanged:
         {
-            [(DTNavigationBar *)self.navigationBar updateInteractiveTransition:fraction];
             [_animationController updateInteractiveTransition:fraction];
             break;
         }
         case UIGestureRecognizerStateEnded:
         {
             if (fraction >= 0.3) {
-                [(DTNavigationBar *)self.navigationBar finishInteractiveTransition];
                 [_animationController finishInteractiveTransition];
             }
             else {
-                [(DTNavigationBar *)self.navigationBar cancelInteractiveTransition];
                 [_animationController cancelInteractiveTransition];
             }
             self.interactive = NO;
@@ -155,7 +151,6 @@
         }
         case UIGestureRecognizerStateCancelled:
         {
-            [(DTNavigationBar *)self.navigationBar cancelInteractiveTransition];
             [_animationController cancelInteractiveTransition];
             self.interactive = YES;
             break;

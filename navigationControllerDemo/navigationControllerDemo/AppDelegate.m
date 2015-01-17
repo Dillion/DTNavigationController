@@ -17,6 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+#ifdef DEBUG
+    if ([[[NSProcessInfo processInfo] environment] objectForKey:@"DebugCALayerAnimationSpeed"]) {
+        float animationSpeed = [[[[NSProcessInfo processInfo] environment] objectForKey:@"DebugCALayerAnimationSpeed"] floatValue];
+        [(CALayer *)[[[[UIApplication sharedApplication] windows] objectAtIndex:0] layer] setSpeed:animationSpeed];
+    }
+#endif
+    
     return YES;
 }
 

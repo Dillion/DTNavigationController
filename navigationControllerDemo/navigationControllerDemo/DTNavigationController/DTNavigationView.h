@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol NavigationViewAnimating <NSObject>
-- (void)performAnimation;
-@end
-
 @interface DTNavigationView : UIView
-
-@property (weak, nonatomic) id<NavigationViewAnimating> animationDelegate;
 
 @end

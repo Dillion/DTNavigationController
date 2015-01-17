@@ -13,4 +13,8 @@
 
 @property (nonatomic, strong) DTNavigationView *navigationView;
 
+- (void)prepareForAnimation;
+- (void)performAnimation;
+- (void)onAnimationCompleted;
+
 @end

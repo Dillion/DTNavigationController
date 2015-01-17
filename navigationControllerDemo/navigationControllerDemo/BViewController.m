@@ -11,7 +11,7 @@
 #import "NavigationView.h"
 #import "navigationControllerDemo-Swift.h"
 
-@interface BViewController () <NavigationViewAnimating>
+@interface BViewController ()
 
 @end
 
@@ -22,7 +22,6 @@
     // Do any additional setup after loading the view.
     
     NavigationView *navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
-    navigationView.animationDelegate = self;
     [navigationView.navigationButton addTarget:self action:@selector(onBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationView = navigationView;
 }

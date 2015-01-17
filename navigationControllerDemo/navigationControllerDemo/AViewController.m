@@ -30,7 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onButtonTapped:(id)sender {
+- (IBAction)onButtonTapped:(id)sender
+{
     BViewController *bViewController = [[BViewController alloc] initWithNibName:@"BViewController" bundle:nil];
     [self.navigationController pushViewController:bViewController animated:YES];
 }
@@ -38,7 +39,15 @@
 - (void)performAnimation
 {
     NavigationView *navigationView = (NavigationView *)self.navigationView;
+    navigationView.navigationButton.duration = 0.4;
     navigationView.navigationButton.showsMenu = NO;
+}
+
+- (void)onAnimationCompleted
+{
+    NavigationView *navigationView = (NavigationView *)self.navigationView;
+    navigationView.navigationButton.duration = 0;
+    navigationView.navigationButton.showsMenu = YES;
 }
 
 @end

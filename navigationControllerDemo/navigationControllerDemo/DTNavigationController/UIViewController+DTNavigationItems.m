@@ -23,4 +23,19 @@ static char const *const NavigationViewKey = "NavigationViewKey";
     objc_setAssociatedObject(self, NavigationViewKey, navigationView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)prepareForAnimation
+{
+    
+}
+
+- (void)performAnimation
+{
+    
+}
+
+- (void)onAnimationCompleted
+{
+    
+}
+
 @end

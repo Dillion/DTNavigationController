@@ -7,6 +7,7 @@
 //
 
 #import "DTAnimationController.h"
+#import "UIViewController+DTNavigationItems.h"
 
 @implementation DTAnimationController
 
@@ -40,6 +41,8 @@
             
             [[transitionContext containerView] addSubview:toViewController.view];
             
+            [toViewController performAnimation];
+            
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
                 CGRect newDestRect = CGRectMake(0, destBounds.origin.y, destBounds.size.width, destBounds.size.height);
@@ -50,6 +53,7 @@
                 BOOL cancelled = [transitionContext transitionWasCancelled];
                 [transitionContext completeTransition:!cancelled];
                 if (!cancelled && _completionBlock) {
+                    [fromViewController onAnimationCompleted];
                     _completionBlock();
                 }
                 
@@ -62,6 +66,8 @@
             CGRect destBounds = fromViewController.view.bounds;
             
             [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
+            
+            [toViewController performAnimation];
             
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 

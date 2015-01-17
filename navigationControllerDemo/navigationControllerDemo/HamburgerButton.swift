@@ -19,6 +19,7 @@ public class HamburgerButton: UIButton {
         }
     }
     }
+    public var duration: CFTimeInterval = 0.4
 
     private let top: CAShapeLayer = CAShapeLayer()
     private let middle: CAShapeLayer = CAShapeLayer()
@@ -76,7 +77,7 @@ public class HamburgerButton: UIButton {
         didSet {
             // There's many animations so it's easier to set up duration and timing function at once.
             CATransaction.begin()
-            CATransaction.setAnimationDuration(0.4)
+            CATransaction.setAnimationDuration(duration)
             CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(controlPoints: 0.4, 0.0, 0.2, 1.0))
 
             let strokeStartNewValue: CGFloat = showsMenu ? 0.0 : 0.3

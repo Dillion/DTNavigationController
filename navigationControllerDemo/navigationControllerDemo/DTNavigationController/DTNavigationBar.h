@@ -16,9 +16,4 @@ static const CGFloat kDTNavigationBarHeightAdjustment = 40.0f;
 
 @property (nonatomic, weak) DTNavigationView *currentNavigationView;
 
-- (void)animateTransitionForNavigationView:(DTNavigationView *)fromView toNavigationView:(DTNavigationView *)toView;
-- (void)updateInteractiveTransition:(CGFloat)percentComplete;
-- (void)finishInteractiveTransition;
-- (void)cancelInteractiveTransition;
-
 @end
