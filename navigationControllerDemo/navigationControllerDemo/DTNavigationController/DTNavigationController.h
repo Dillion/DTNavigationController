@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DTAnimationController.h"
+
+@class DTAnimationController;
+@class DTInteractionController;
 
 @interface DTNavigationController : UINavigationController <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) DTAnimationController *animationController;
+@property (nonatomic, strong) DTInteractionController *interactionController;
 @property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *popGestureRecognizer;
 @property (nonatomic) BOOL interactive;
 

@@ -20,11 +20,15 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
     Show,
 };
 
-@interface DTAnimationController : UIPercentDrivenInteractiveTransition <UIViewControllerAnimatedTransitioning>
+@interface DTAnimationController : NSObject <UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic) AnimationType animationType;
 @property (nonatomic, copy) void (^completionBlock)(void);
+@property (nonatomic, weak) CALayer *navigationLayer;
 
 - (instancetype)initWithCompletionBlock:(void (^)(void))completionBlock;
+
+// for some reason we need to manually reset changes after our custom interaction controller has called cancelInteractiveTransition on the transitioningcontext (ohgodwhy)
+- (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
 
 @end

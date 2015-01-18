@@ -32,6 +32,8 @@
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
+    self.navigationLayer = toViewController.navigationView.layer;
+    
     switch (_animationType) {
         case Push:
         case Show: {
@@ -52,6 +54,7 @@
                 
                 BOOL cancelled = [transitionContext transitionWasCancelled];
                 [transitionContext completeTransition:!cancelled];
+                self.navigationLayer = nil;
                 if (!cancelled && _completionBlock) {
                     [fromViewController onAnimationCompleted];
                     _completionBlock();
@@ -78,6 +81,7 @@
                 
                 BOOL cancelled = [transitionContext transitionWasCancelled];
                 [transitionContext completeTransition:!cancelled];
+                self.navigationLayer = nil;
                 if (!cancelled && _completionBlock) {
                     _completionBlock();
                 }
@@ -89,6 +93,14 @@
         default:
             break;
     }
+}
+
+- (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
+    CGRect viewRect = fromViewController.view.bounds;
+    fromViewController.view.frame = viewRect;
 }
 
 @end

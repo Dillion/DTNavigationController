@@ -10,6 +10,8 @@
 #import "DTToolbar.h"
 #import "DTNavigationBar.h"
 #import "UIViewController+DTNavigationItems.h"
+#import "DTAnimationController.h"
+#import "DTInteractionController.h"
 
 @interface DTNavigationController ()
 
@@ -43,6 +45,9 @@
     self.animationController = [[DTAnimationController alloc] initWithCompletionBlock:^{
         
     }];
+    self.interactionController = [[DTInteractionController alloc] init];
+    _interactionController.animationController = self.animationController;
+    
     self.popGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
     _popGestureRecognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:_popGestureRecognizer];
@@ -76,7 +81,7 @@
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     
     if (_interactive) {
-        return _animationController;
+        return _interactionController;
     }
     return nil;
 }
@@ -135,23 +140,23 @@
         }
         case UIGestureRecognizerStateChanged:
         {
-            [_animationController updateInteractiveTransition:fraction];
+            [_interactionController updateInteractiveTransition:fraction];
             break;
         }
         case UIGestureRecognizerStateEnded:
         {
             if (fraction >= 0.3) {
-                [_animationController finishInteractiveTransition];
+                [_interactionController finishInteractiveTransition];
             }
             else {
-                [_animationController cancelInteractiveTransition];
+                [_interactionController cancelInteractiveTransition];
             }
             self.interactive = NO;
             break;
         }
         case UIGestureRecognizerStateCancelled:
         {
-            [_animationController cancelInteractiveTransition];
+            [_interactionController cancelInteractiveTransition];
             self.interactive = YES;
             break;
         }
