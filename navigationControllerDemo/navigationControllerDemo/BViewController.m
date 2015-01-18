@@ -69,7 +69,6 @@
     CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
     
     if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-        
     } else {
         frameRect.origin.x = frameRect.size.width;
         self.view.frame = frameRect;
@@ -104,7 +103,7 @@
     self.view.frame = self.view.bounds;
     
     NavigationView *navigationView = (NavigationView *)self.navigationView;
-    [navigationView.navigationButton showMenu:YES animated:NO];
+    [navigationView.navigationButton showMenu:YES animated:YES];
 }
 
 @end

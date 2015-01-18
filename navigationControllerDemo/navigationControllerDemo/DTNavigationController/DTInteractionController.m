@@ -43,8 +43,6 @@
 {
     if (!_isActive) return;
     
-    [_transitionContext cancelInteractiveTransition];
-    
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(reverseAnimation:)];
     [displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
@@ -67,7 +65,12 @@
     
     _percentComplete -= percentInterval;
     
+    [self updateInteractiveTransition:_percentComplete];
+    
     if (_percentComplete <= 0.0) {
+        [CATransaction begin];
+        [CATransaction disableActions];
+        [_transitionContext cancelInteractiveTransition];
         self.isActive = NO;
         CALayer *layer = [_transitionContext containerView].layer;
         [_animationController resetAnimation:_transitionContext];
@@ -75,10 +78,9 @@
         [self removeAnimationsRecursively:_animationController.navigationLayer];
         [self resetLayerTime:layer];
         [self resetLayerTime:_animationController.navigationLayer];
+        [CATransaction commit];
         
         [displayLink invalidate];
-    } else {
-        [self updateInteractiveTransition:_percentComplete];
     }
 }
 

@@ -144,7 +144,7 @@ static const CGFloat kBottomYPosition = 14.0f;
         [CATransaction begin];
         [CATransaction setAnimationDuration:0.4];
         [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.4 :0.0 :0.2 :1.0]];
-                                                                             
+        
         CAKeyframeAnimation *topRotation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
         topRotation.values = topRotationValues;
         topRotation.calculationMode = kCAAnimationCubic;
