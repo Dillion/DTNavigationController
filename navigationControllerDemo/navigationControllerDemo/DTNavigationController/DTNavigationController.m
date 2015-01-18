@@ -46,9 +46,7 @@
     
     self.delegate = self;
     
-    self.animationController = [[DTAnimationController alloc] initWithCompletionBlock:^{
-        
-    }];
+    self.animationController = [[DTAnimationController alloc] init];
     self.interactionController = [[DTInteractionController alloc] init];
     _interactionController.animationController = self.animationController;
     

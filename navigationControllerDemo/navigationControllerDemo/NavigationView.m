@@ -25,13 +25,6 @@
     [self addSubview:view];
 }
 
-- (void)layoutSubviews
-{
-    self.frame = self.superview.bounds;
-    
-    [super layoutSubviews];
-}
-
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];

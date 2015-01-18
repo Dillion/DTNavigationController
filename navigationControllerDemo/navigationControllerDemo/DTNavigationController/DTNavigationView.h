@@ -10,6 +10,4 @@
 
 @interface DTNavigationView : UIView
 
-- (void)resetAnimation;
-
 @end

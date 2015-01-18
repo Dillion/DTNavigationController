@@ -12,15 +12,6 @@
 
 @implementation DTAnimationController
 
-- (instancetype)initWithCompletionBlock:(void (^)(void))completionBlock
-{
-    self = [super init];
-    if (self) {
-        self.completionBlock = completionBlock;
-    }
-    return self;
-}
-
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return kTransitionAnimationDuration;
@@ -64,9 +55,6 @@
                                                        andView:toViewController.navigationView];
                     [toViewController completeTransitionWithInfo:toInfo];
                 }
-                if (!cancelled && _completionBlock) {
-                    _completionBlock();
-                }
                 
             }];
         }
@@ -98,10 +86,6 @@
                     [navigationBar updateNavigationBarWithView:fromViewController.navigationView
                                                        andView:toViewController.navigationView];
                     [toViewController completeTransitionWithInfo:toInfo];
-                }
-                
-                if (!cancelled && _completionBlock) {
-                    _completionBlock();
                 }
                 
             }];

@@ -18,9 +18,11 @@
 }
 */
 
-- (void)resetAnimation
+- (void)layoutSubviews
 {
+    self.frame = self.superview.bounds;
     
+    [super layoutSubviews];
 }
 
 @end
