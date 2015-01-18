@@ -23,9 +23,13 @@
     UIView *view = [[[UINib nibWithNibName:@"NavigationView" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
     view.frame = self.bounds;
     [self addSubview:view];
+}
+
+- (void)layoutSubviews
+{
+    self.frame = self.superview.bounds;
     
-    // can't add constraints to navigation bar ... so let's use autoresizing masks instead to fill to the edges
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    [super layoutSubviews];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
