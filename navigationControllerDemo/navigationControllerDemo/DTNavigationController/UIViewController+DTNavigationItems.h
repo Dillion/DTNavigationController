@@ -13,8 +13,9 @@
 
 @property (nonatomic, strong) DTNavigationView *navigationView;
 
-- (void)prepareForAnimation;
-- (void)performAnimation;
-- (void)onAnimationCompleted;
+- (void)prepareForTransitionWithInfo:(NSDictionary *)info;
+- (void)performTransitionWithInfo:(NSDictionary *)info;
+- (void)completeTransitionWithInfo:(NSDictionary *)info;
+- (void)cancelTransition;
 
 @end

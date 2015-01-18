@@ -7,6 +7,7 @@
 //
 
 #import "DTAnimationController.h"
+#import "DTNavigationBar.h"
 #import "UIViewController+DTNavigationItems.h"
 
 @implementation DTAnimationController
@@ -32,31 +33,38 @@
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
-    self.navigationLayer = toViewController.navigationView.layer;
+    DTNavigationBar *navigationBar = (DTNavigationBar *)fromViewController.navigationController.navigationBar;
+    self.navigationLayer = navigationBar.layer;
     
     switch (_animationType) {
         case Push:
         case Show: {
-            CGRect destBounds = fromViewController.view.bounds;
-            destBounds.origin.x = destBounds.size.width;
-            toViewController.view.frame = destBounds;
+            NSDictionary *toInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                                     @"direction":UITransitionContextToViewControllerKey};
+            NSDictionary *fromInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                                       @"direction":UITransitionContextFromViewControllerKey};
             
             [[transitionContext containerView] addSubview:toViewController.view];
             
-            [toViewController performAnimation];
+            [toViewController prepareForTransitionWithInfo:toInfo];
+            [fromViewController prepareForTransitionWithInfo:fromInfo];
             
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
-                CGRect newDestRect = CGRectMake(0, destBounds.origin.y, destBounds.size.width, destBounds.size.height);
-                toViewController.view.frame = newDestRect;
+                [toViewController performTransitionWithInfo:toInfo];
+                [fromViewController performTransitionWithInfo:fromInfo];
                 
             } completion:^(BOOL finished) {
                 
                 BOOL cancelled = [transitionContext transitionWasCancelled];
                 [transitionContext completeTransition:!cancelled];
-                self.navigationLayer = nil;
+                if (!cancelled) {
+                    self.navigationLayer = nil;
+                    [navigationBar updateNavigationBarWithView:fromViewController.navigationView
+                                                       andView:toViewController.navigationView];
+                    [toViewController completeTransitionWithInfo:toInfo];
+                }
                 if (!cancelled && _completionBlock) {
-                    [fromViewController onAnimationCompleted];
                     _completionBlock();
                 }
                 
@@ -66,22 +74,32 @@
         case Pop:
         case PopToView:
         case PopToRoot: {
-            CGRect destBounds = fromViewController.view.bounds;
+            NSDictionary *toInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                                     @"direction":UITransitionContextToViewControllerKey};
+            NSDictionary *fromInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                                       @"direction":UITransitionContextFromViewControllerKey};
             
             [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
             
-            [toViewController performAnimation];
+            [toViewController prepareForTransitionWithInfo:toInfo];
+            [fromViewController prepareForTransitionWithInfo:fromInfo];
             
             [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
-                CGRect newDestRect = CGRectMake(destBounds.size.width, destBounds.origin.y, destBounds.size.width, destBounds.size.height);
-                fromViewController.view.frame = newDestRect;
+                [toViewController performTransitionWithInfo:toInfo];
+                [fromViewController performTransitionWithInfo:fromInfo];
                 
             } completion:^(BOOL finished) {
                 
                 BOOL cancelled = [transitionContext transitionWasCancelled];
                 [transitionContext completeTransition:!cancelled];
-                self.navigationLayer = nil;
+                if (!cancelled) {
+                    self.navigationLayer = nil;
+                    [navigationBar updateNavigationBarWithView:fromViewController.navigationView
+                                                       andView:toViewController.navigationView];
+                    [toViewController completeTransitionWithInfo:toInfo];
+                }
+                
                 if (!cancelled && _completionBlock) {
                     _completionBlock();
                 }
@@ -98,12 +116,8 @@
 - (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    CGRect viewRect = fromViewController.view.bounds;
-    fromViewController.view.frame = viewRect;
-    
-    [toViewController.navigationView resetAnimation];
+    [fromViewController cancelTransition];
 }
 
 @end

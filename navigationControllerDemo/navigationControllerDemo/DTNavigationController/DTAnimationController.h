@@ -12,7 +12,7 @@
 static const CGFloat kTransitionAnimationDuration = 0.25f;
 
 typedef NS_ENUM(NSUInteger, AnimationType) {
-    None,
+    TypeNone,
     Push,
     Pop,
     PopToView,
@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
 
 @property (nonatomic) AnimationType animationType;
 @property (nonatomic, copy) void (^completionBlock)(void);
+
 @property (nonatomic, weak) CALayer *navigationLayer;
 
 - (instancetype)initWithCompletionBlock:(void (^)(void))completionBlock;

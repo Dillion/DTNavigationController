@@ -58,8 +58,7 @@
     
     CALayer *layer = [_transitionContext containerView].layer;
     [self resetLayerTime:layer];
-    [self removeAnimationsRecursively:_animationController.navigationLayer];
-//    [self resetLayerTime:_animationController.navigationLayer];
+    [self resetLayerTime:_animationController.navigationLayer];
 }
 
 - (void)reverseAnimation:(CADisplayLink *)displayLink
@@ -71,10 +70,12 @@
     if (_percentComplete <= 0.0) {
         self.isActive = NO;
         CALayer *layer = [_transitionContext containerView].layer;
+        [_animationController resetAnimation:_transitionContext];
         [self removeAnimationsRecursively:layer];
         [self removeAnimationsRecursively:_animationController.navigationLayer];
         [self resetLayerTime:layer];
-        [_animationController resetAnimation:_transitionContext];
+        [self resetLayerTime:_animationController.navigationLayer];
+        
         [displayLink invalidate];
     } else {
         [self updateInteractiveTransition:_percentComplete];

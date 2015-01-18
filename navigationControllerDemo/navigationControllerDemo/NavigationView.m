@@ -7,7 +7,6 @@
 //
 
 #import "NavigationView.h"
-#import "HamburgerButton.h"
 
 @implementation NavigationView
 
@@ -45,11 +44,6 @@
         [self commonInit];
     }
     return self;
-}
-
-- (void)resetAnimation
-{
-    [self.navigationButton showMenu:YES animated:NO];
 }
 
 @end

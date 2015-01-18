@@ -56,15 +56,6 @@
     return barSize;
 }
 
-- (void)setCurrentNavigationView:(DTNavigationView *)currentNavigationView
-{
-    if (_currentNavigationView != currentNavigationView) {
-        [_currentNavigationView removeFromSuperview];
-        [self addSubview:currentNavigationView];
-    }
-    _currentNavigationView = currentNavigationView;
-}
-
 // hide all the default stuff except our own view
 - (void)addSubview:(UIView *)view
 {
@@ -72,6 +63,15 @@
         view.hidden = YES;
     }
     [super addSubview:view];
+}
+
+- (void)updateNavigationBarWithView:(DTNavigationView *)currentNavigationView
+                            andView:(DTNavigationView *)incomingNavigationView
+{
+    [currentNavigationView removeFromSuperview];
+    [self addSubview:incomingNavigationView];
+    
+    _isShowingNavigationView = YES;
 }
 
 @end

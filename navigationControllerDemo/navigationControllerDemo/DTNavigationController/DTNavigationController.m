@@ -21,19 +21,23 @@
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController
 {
-    DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
-    [navigationController setViewControllers:@[rootViewController]];
-    return navigationController;
+    return [self commonInitWithControllers:@[rootViewController]];
 }
 
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
 {
     if ([self.navigationBar isKindOfClass:[UINavigationBar class]]) {
-        DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
-        [navigationController setViewControllers:[self viewControllers]];
-        return navigationController;
+        return [self commonInitWithControllers:[self viewControllers]];
     }
     return self;
+}
+
+- (DTNavigationController *)commonInitWithControllers:(NSArray *)controllers
+{
+    DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
+    [navigationController setViewControllers:controllers];
+    
+    return navigationController;
 }
 
 - (void)viewDidLoad {
@@ -88,8 +92,12 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationBar;
-    navigationBar.currentNavigationView = viewController.navigationView;
+    DTNavigationBar *navigationBar = (DTNavigationBar *)navigationController.navigationBar;
+    
+    if (![navigationBar isShowingNavigationView]) {
+        [navigationBar updateNavigationBarWithView:nil
+                                           andView:viewController.navigationView];
+    }
 }
 
 #pragma mark - Navigation Controller overrides

@@ -36,16 +36,35 @@
     [self.navigationController pushViewController:bViewController animated:YES];
 }
 
-- (void)performAnimation
+- (void)prepareForTransitionWithInfo:(NSDictionary *)info
 {
-    NavigationView *navigationView = (NavigationView *)self.navigationView;
-    [navigationView.navigationButton showMenu:NO animated:YES];
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+    } else {
+    }
 }
 
-- (void)onAnimationCompleted
+- (void)performTransitionWithInfo:(NSDictionary *)info
 {
-    NavigationView *navigationView = (NavigationView *)self.navigationView;
-    [navigationView.navigationButton showMenu:YES animated:NO];
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+        NavigationView *navigationView = (NavigationView *)self.navigationView;
+        [navigationView.navigationButton showMenu:YES animated:YES];
+    } else {
+    }
+}
+
+- (void)completeTransitionWithInfo:(NSDictionary *)info
+{
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+        
+    } else {
+        NavigationView *navigationView = (NavigationView *)self.navigationView;
+        [navigationView.navigationButton showMenu:NO animated:NO];
+    }
+}
+
+- (void)cancelTransition
+{
+    
 }
 
 @end

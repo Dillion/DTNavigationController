@@ -14,6 +14,9 @@ static const CGFloat kDTNavigationBarHeightAdjustment = 40.0f;
 
 @interface DTNavigationBar : UINavigationBar
 
-@property (nonatomic, weak) DTNavigationView *currentNavigationView;
+@property (nonatomic, assign, readonly) BOOL isShowingNavigationView;
+
+- (void)updateNavigationBarWithView:(DTNavigationView *)currentNavigationView
+                            andView:(DTNavigationView *)incomingNavigationView;
 
 @end

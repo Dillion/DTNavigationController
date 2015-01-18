@@ -22,7 +22,10 @@
     // Do any additional setup after loading the view.
     
     NavigationView *navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+    navigationView.backgroundColor = [UIColor grayColor];
     [navigationView.navigationButton addTarget:self action:@selector(onBackButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [navigationView.navigationButton showMenu:YES animated:NO];
+//    navigationView.hidden = YES;
     self.navigationView = navigationView;
 }
 
@@ -61,10 +64,47 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)performAnimation
+- (void)prepareForTransitionWithInfo:(NSDictionary *)info
 {
+    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
+    
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+        
+    } else {
+        frameRect.origin.x = frameRect.size.width;
+        self.view.frame = frameRect;
+    }
+}
+
+- (void)performTransitionWithInfo:(NSDictionary *)info
+{
+    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
+    
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+        frameRect.origin.x = frameRect.size.width;
+        self.view.frame = frameRect;
+        
+        NavigationView *navigationView = (NavigationView *)self.navigationView;
+        [navigationView.navigationButton showMenu:NO animated:YES];
+    } else {
+        frameRect.origin.x = 0;
+        self.view.frame = frameRect;
+    }
+}
+
+- (void)completeTransitionWithInfo:(NSDictionary *)info
+{
+    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+    } else {
+    }
+}
+
+- (void)cancelTransition
+{
+    self.view.frame = self.view.bounds;
+    
     NavigationView *navigationView = (NavigationView *)self.navigationView;
-    [navigationView.navigationButton showMenu:YES animated:YES];
+    [navigationView.navigationButton showMenu:YES animated:NO];
 }
 
 @end
