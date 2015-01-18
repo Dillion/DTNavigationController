@@ -9,8 +9,8 @@
 #import "AViewController.h"
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
-#import "navigationControllerDemo-Swift.h"
 #import "BViewController.h"
+#import "HamburgerButton.h"
 
 @interface AViewController ()
 
@@ -39,15 +39,13 @@
 - (void)performAnimation
 {
     NavigationView *navigationView = (NavigationView *)self.navigationView;
-    navigationView.navigationButton.duration = 0.4;
-    navigationView.navigationButton.showsMenu = NO;
+    [navigationView.navigationButton showMenu:NO animated:YES];
 }
 
 - (void)onAnimationCompleted
 {
     NavigationView *navigationView = (NavigationView *)self.navigationView;
-    navigationView.navigationButton.duration = 0;
-    navigationView.navigationButton.showsMenu = YES;
+    [navigationView.navigationButton showMenu:YES animated:NO];
 }
 
 @end

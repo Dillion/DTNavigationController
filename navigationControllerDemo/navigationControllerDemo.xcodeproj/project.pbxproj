@@ -24,8 +24,8 @@
 		7493F3371A6A2D97002C4347 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7493F3361A6A2D97002C4347 /* NavigationView.xib */; };
 		7493F33A1A6A2F54002C4347 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3391A6A2F54002C4347 /* NavigationView.m */; };
 		7493F33E1A6A359B002C4347 /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7493F33D1A6A359B002C4347 /* BViewController.xib */; };
-		7493F3461A6A6B14002C4347 /* HamburgerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3451A6A6B14002C4347 /* HamburgerButton.swift */; };
 		7493F34F1A6B66D3002C4347 /* DTInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F34E1A6B66D3002C4347 /* DTInteractionController.m */; };
+		7493F3551A6B82EB002C4347 /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3541A6B82EB002C4347 /* HamburgerButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +71,10 @@
 		7493F3391A6A2F54002C4347 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		7493F33D1A6A359B002C4347 /* BViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BViewController.xib; sourceTree = "<group>"; };
 		7493F3421A6A5FD4002C4347 /* navigationControllerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "navigationControllerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		7493F3451A6A6B14002C4347 /* HamburgerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerButton.swift; sourceTree = "<group>"; };
 		7493F34D1A6B66D3002C4347 /* DTInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInteractionController.h; sourceTree = "<group>"; };
 		7493F34E1A6B66D3002C4347 /* DTInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTInteractionController.m; sourceTree = "<group>"; };
+		7493F3531A6B82EB002C4347 /* HamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamburgerButton.h; sourceTree = "<group>"; };
+		7493F3541A6B82EB002C4347 /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +116,8 @@
 		747B08791A675050005E727C /* navigationControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7493F3451A6A6B14002C4347 /* HamburgerButton.swift */,
+				7493F3531A6B82EB002C4347 /* HamburgerButton.h */,
+				7493F3541A6B82EB002C4347 /* HamburgerButton.m */,
 				747B08A01A67506B005E727C /* DTNavigationController */,
 				747B087E1A675050005E727C /* AppDelegate.h */,
 				747B087F1A675050005E727C /* AppDelegate.m */,
@@ -291,12 +293,12 @@
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
 				7493F33A1A6A2F54002C4347 /* NavigationView.m in Sources */,
 				7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */,
-				7493F3461A6A6B14002C4347 /* HamburgerButton.swift in Sources */,
 				7493F32B1A6910BE002C4347 /* BViewController.m in Sources */,
 				747B08A61A67506B005E727C /* DTNavigationController.m in Sources */,
 				747B08A51A67506B005E727C /* DTAnimationController.m in Sources */,
 				747B087D1A675050005E727C /* main.m in Sources */,
 				7493F3341A691FC1002C4347 /* DTNavigationView.m in Sources */,
+				7493F3551A6B82EB002C4347 /* HamburgerButton.m in Sources */,
 				7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

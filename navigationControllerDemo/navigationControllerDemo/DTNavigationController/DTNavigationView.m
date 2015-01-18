@@ -18,4 +18,9 @@
 }
 */
 
+- (void)resetAnimation
+{
+    
+}
+
 @end

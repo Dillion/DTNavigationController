@@ -98,9 +98,12 @@
 - (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     CGRect viewRect = fromViewController.view.bounds;
     fromViewController.view.frame = viewRect;
+    
+    [toViewController.navigationView resetAnimation];
 }
 
 @end

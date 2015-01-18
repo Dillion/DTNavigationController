@@ -9,7 +9,7 @@
 #import "BViewController.h"
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
-#import "navigationControllerDemo-Swift.h"
+#import "HamburgerButton.h"
 
 @interface BViewController ()
 
@@ -64,7 +64,7 @@
 - (void)performAnimation
 {
     NavigationView *navigationView = (NavigationView *)self.navigationView;
-    navigationView.navigationButton.showsMenu = YES;
+    [navigationView.navigationButton showMenu:YES animated:YES];
 }
 
 @end
