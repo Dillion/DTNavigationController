@@ -14,5 +14,7 @@
 
 - (IBAction)onButtonTapped:(id)sender;
 
+- (void)showMenu:(BOOL)show;
+
 @end
 

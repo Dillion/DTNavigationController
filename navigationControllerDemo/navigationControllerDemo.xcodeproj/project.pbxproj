@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7420F5DD1A6CB37F004E913B /* COSTouchVisualizerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */; };
 		747B087D1A675050005E727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087C1A675050005E727C /* main.m */; };
 		747B08801A675050005E727C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087F1A675050005E727C /* AppDelegate.m */; };
 		747B08831A675050005E727C /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08821A675050005E727C /* AViewController.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7420F5DB1A6CB37F004E913B /* COSTouchVisualizerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTouchVisualizerWindow.h; sourceTree = "<group>"; };
+		7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTouchVisualizerWindow.m; sourceTree = "<group>"; };
 		747B08771A675050005E727C /* navigationControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigationControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747B087B1A675050005E727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747B087C1A675050005E727C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 		747B08791A675050005E727C /* navigationControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7420F5DB1A6CB37F004E913B /* COSTouchVisualizerWindow.h */,
+				7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */,
 				7493F3531A6B82EB002C4347 /* HamburgerButton.h */,
 				7493F3541A6B82EB002C4347 /* HamburgerButton.m */,
 				747B08A01A67506B005E727C /* DTNavigationController */,
@@ -288,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7493F34F1A6B66D3002C4347 /* DTInteractionController.m in Sources */,
+				7420F5DD1A6CB37F004E913B /* COSTouchVisualizerWindow.m in Sources */,
 				747B08831A675050005E727C /* AViewController.m in Sources */,
 				7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,

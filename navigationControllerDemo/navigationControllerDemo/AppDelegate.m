@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "COSTouchVisualizerWindow.h"
 
 @interface AppDelegate ()
 
@@ -48,6 +49,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (COSTouchVisualizerWindow *)window
+{
+    static COSTouchVisualizerWindow *customWindow = nil;
+    if (!customWindow) {
+        customWindow = [[COSTouchVisualizerWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        [customWindow setFillColor:[UIColor whiteColor]];
+        [customWindow setStrokeColor:[UIColor grayColor]];
+        [customWindow setTouchAlpha:0.4];
+        
+        [customWindow setRippleFillColor:[UIColor whiteColor]];
+        [customWindow setRippleStrokeColor:[UIColor grayColor]];
+        [customWindow setRippleAlpha:0.1];
+        [customWindow setTouchVisualizerWindowDelegate:self];
+    }
+    return customWindow;
+}
+
+- (BOOL)touchVisualizerWindowShouldAlwaysShowFingertip:(COSTouchVisualizerWindow *)window
+{
+    return YES;  // Return YES to make the fingertip always display even if there's no any mirrored screen.
+    // Return NO or don't implement this method if you want to keep the fingertip display only when
+    // the device is connected to a mirrored screen.
 }
 
 @end

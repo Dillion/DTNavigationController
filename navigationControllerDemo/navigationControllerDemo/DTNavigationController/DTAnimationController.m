@@ -17,6 +17,8 @@
     return kTransitionAnimationDuration;
 }
 
+//  the from context is always the reference
+//  rely on the cancelled flag to set completion state
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -27,74 +29,50 @@
     DTNavigationBar *navigationBar = (DTNavigationBar *)fromViewController.navigationController.navigationBar;
     self.navigationLayer = navigationBar.layer;
     
+    NSDictionary *toInfo = @{@"type": @(_animationType),
+                             @"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                             @"direction":UITransitionContextToViewControllerKey};
+    NSDictionary *fromInfo = @{@"type": @(_animationType),
+                               @"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
+                               @"direction":UITransitionContextFromViewControllerKey};
+    
     switch (_animationType) {
         case Push:
         case Show: {
-            NSDictionary *toInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                                     @"direction":UITransitionContextToViewControllerKey};
-            NSDictionary *fromInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                                       @"direction":UITransitionContextFromViewControllerKey};
-            
             [[transitionContext containerView] addSubview:toViewController.view];
-            
-            [toViewController prepareForTransitionWithInfo:toInfo];
-            [fromViewController prepareForTransitionWithInfo:fromInfo];
-            
-            [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                
-                [toViewController performTransitionWithInfo:toInfo];
-                [fromViewController performTransitionWithInfo:fromInfo];
-                
-            } completion:^(BOOL finished) {
-                
-                BOOL cancelled = [transitionContext transitionWasCancelled];
-                [transitionContext completeTransition:!cancelled];
-                if (!cancelled) {
-                    self.navigationLayer = nil;
-                    [navigationBar updateNavigationBarWithView:fromViewController.navigationView
-                                                       andView:toViewController.navigationView];
-                    [toViewController completeTransitionWithInfo:toInfo];
-                }
-                
-            }];
         }
             break;
         case Pop:
         case PopToView:
         case PopToRoot: {
-            NSDictionary *toInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                                     @"direction":UITransitionContextToViewControllerKey};
-            NSDictionary *fromInfo = @{@"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                                       @"direction":UITransitionContextFromViewControllerKey};
-            
             [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
-            
-            [toViewController prepareForTransitionWithInfo:toInfo];
-            [fromViewController prepareForTransitionWithInfo:fromInfo];
-            
-            [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                
-                [toViewController performTransitionWithInfo:toInfo];
-                [fromViewController performTransitionWithInfo:fromInfo];
-                
-            } completion:^(BOOL finished) {
-                
-                BOOL cancelled = [transitionContext transitionWasCancelled];
-                [transitionContext completeTransition:!cancelled];
-                if (!cancelled) {
-                    self.navigationLayer = nil;
-                    [navigationBar updateNavigationBarWithView:fromViewController.navigationView
-                                                       andView:toViewController.navigationView];
-                    [toViewController completeTransitionWithInfo:toInfo];
-                }
-                
-            }];
         }
             break;
             
         default:
             break;
     }
+    
+    [toViewController prepareForTransitionWithInfo:toInfo];
+    [fromViewController prepareForTransitionWithInfo:fromInfo];
+    
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        [toViewController performTransitionWithInfo:toInfo];
+        [fromViewController performTransitionWithInfo:fromInfo];
+        
+    } completion:^(BOOL finished) {
+        
+        BOOL cancelled = [transitionContext transitionWasCancelled];
+        [transitionContext completeTransition:!cancelled];
+        if (!cancelled) {
+            self.navigationLayer = nil;
+            [navigationBar updateNavigationBarWithView:fromViewController.navigationView
+                                               andView:toViewController.navigationView];
+            [toViewController completeTransitionWithInfo:toInfo];
+        }
+        
+    }];
 }
 
 - (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext

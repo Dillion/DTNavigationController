@@ -10,6 +10,7 @@
 #import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
 #import "HamburgerButton.h"
+#import "DTAnimationController.h"
 
 @interface BViewController ()
 
@@ -64,37 +65,30 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)prepareForTransitionWithInfo:(NSDictionary *)info
-{
-    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
-    
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-    } else {
-        frameRect.origin.x = frameRect.size.width;
-        self.view.frame = frameRect;
-    }
-}
-
 - (void)performTransitionWithInfo:(NSDictionary *)info
 {
-    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
-    
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-        frameRect.origin.x = frameRect.size.width;
-        self.view.frame = frameRect;
-        
-        NavigationView *navigationView = (NavigationView *)self.navigationView;
-        [navigationView.navigationButton showMenu:NO animated:YES];
-    } else {
-        frameRect.origin.x = 0;
-        self.view.frame = frameRect;
-    }
-}
+    [super performTransitionWithInfo:info];
 
-- (void)completeTransitionWithInfo:(NSDictionary *)info
-{
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-    } else {
+    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    
+    switch (animationType) {
+        case Push:
+        case Show: {
+        }
+            break;
+        case Pop:
+        case PopToView:
+        case PopToRoot: {
+            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+                NavigationView *navigationView = (NavigationView *)self.navigationView;
+                [navigationView.navigationButton showMenu:NO animated:YES];
+            } else {
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 

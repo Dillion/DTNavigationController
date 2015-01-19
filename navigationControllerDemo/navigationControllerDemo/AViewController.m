@@ -11,6 +11,7 @@
 #import "NavigationView.h"
 #import "BViewController.h"
 #import "HamburgerButton.h"
+#import "DTAnimationController.h"
 
 @interface AViewController ()
 
@@ -36,29 +37,56 @@
     [self.navigationController pushViewController:bViewController animated:YES];
 }
 
-- (void)prepareForTransitionWithInfo:(NSDictionary *)info
-{
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-    } else {
-    }
-}
-
 - (void)performTransitionWithInfo:(NSDictionary *)info
 {
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-        NavigationView *navigationView = (NavigationView *)self.navigationView;
-        [navigationView.navigationButton showMenu:YES animated:YES];
-    } else {
+    [super performTransitionWithInfo:info];
+    
+    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    
+    switch (animationType) {
+        case Push:
+        case Show: {
+            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+                NavigationView *navigationView = (NavigationView *)self.navigationView;
+                [navigationView.navigationButton showMenu:YES animated:YES];
+            }
+        }
+            break;
+        case Pop:
+        case PopToView:
+        case PopToRoot: {
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
 - (void)completeTransitionWithInfo:(NSDictionary *)info
 {
-    if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-        
-    } else {
-        NavigationView *navigationView = (NavigationView *)self.navigationView;
-        [navigationView.navigationButton showMenu:NO animated:NO];
+    [super completeTransitionWithInfo:info];
+    
+    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    
+    switch (animationType) {
+        case Push:
+        case Show: {
+        }
+            break;
+        case Pop:
+        case PopToView:
+        case PopToRoot: {
+            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            } else {
+                NavigationView *navigationView = (NavigationView *)self.navigationView;
+                [navigationView.navigationButton showMenu:NO animated:NO];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
