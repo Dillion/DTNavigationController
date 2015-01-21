@@ -73,7 +73,6 @@
         [_transitionContext cancelInteractiveTransition];
         self.isActive = NO;
         CALayer *layer = [_transitionContext containerView].layer;
-        [_animationController resetAnimation:_transitionContext];
         [self removeAnimationsRecursively:layer];
         [self removeAnimationsRecursively:_animationController.navigationLayer];
         [self resetLayerTime:layer];

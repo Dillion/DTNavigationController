@@ -75,11 +75,4 @@
     }];
 }
 
-- (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext
-{
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    
-    [fromViewController cancelTransition];
-}
-
 @end

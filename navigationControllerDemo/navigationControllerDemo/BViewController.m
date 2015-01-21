@@ -11,6 +11,7 @@
 #import "NavigationView.h"
 #import "HamburgerButton.h"
 #import "DTAnimationController.h"
+#import "AViewController.h"
 
 @interface BViewController ()
 
@@ -65,39 +66,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)performTransitionWithInfo:(NSDictionary *)info
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super performTransitionWithInfo:info];
-
-    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    [super viewWillDisappear:animated];
     
-    switch (animationType) {
-        case Push:
-        case Show: {
+    [[self transitionCoordinator] animateAlongsideTransitionInView:self.navigationView animation:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        UIViewController *controller = [context viewControllerForKey:UITransitionContextToViewControllerKey];
+        if ([controller isKindOfClass:[AViewController class]]) {
+            NavigationView *navigationView = (NavigationView *)self.navigationView;
+            [navigationView.navigationButton showMenu:NO animated:YES];
         }
-            break;
-        case Pop:
-        case PopToView:
-        case PopToRoot: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
-                NavigationView *navigationView = (NavigationView *)self.navigationView;
-                [navigationView.navigationButton showMenu:NO animated:YES];
-            } else {
-            }
-        }
-            break;
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        
+    }];
+    
+    [[self transitionCoordinator] notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        UIViewController *controller = [context viewControllerForKey:UITransitionContextFromViewControllerKey];
+        if ([context isCancelled] && [controller isKindOfClass:[self class]]) {
+            self.view.frame = self.view.bounds;
             
-        default:
-            break;
-    }
-}
-
-- (void)cancelTransition
-{
-    self.view.frame = self.view.bounds;
-    
-    NavigationView *navigationView = (NavigationView *)self.navigationView;
-    [navigationView.navigationButton showMenu:YES animated:YES];
+            NavigationView *navigationView = (NavigationView *)self.navigationView;
+            [navigationView.navigationButton showMenu:YES animated:NO];
+        }
+    }];
 }
 
 @end

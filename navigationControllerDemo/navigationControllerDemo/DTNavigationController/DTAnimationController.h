@@ -27,7 +27,4 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
 
 @property (nonatomic, weak) CALayer *navigationLayer;
 
-// for some reason we need to manually reset changes after our custom interaction controller has called cancelInteractiveTransition on the transitioningcontext (ohgodwhy)
-- (void)resetAnimation:(id<UIViewControllerContextTransitioning>)transitionContext;
-
 @end

@@ -13,9 +13,10 @@
 
 @property (nonatomic, strong) DTNavigationView *navigationView;
 
+// this are the base transition steps applied in animateTransition
+// we can use UIViewControllerTransitionCoordinator's -animateAlongsideTransition to further customize the animations
 - (void)prepareForTransitionWithInfo:(NSDictionary *)info;
 - (void)performTransitionWithInfo:(NSDictionary *)info;
 - (void)completeTransitionWithInfo:(NSDictionary *)info;
-- (void)cancelTransition;
 
 @end

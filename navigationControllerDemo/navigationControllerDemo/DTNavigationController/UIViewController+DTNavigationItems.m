@@ -115,9 +115,4 @@ static char const *const NavigationViewKey = "NavigationViewKey";
     }
 }
 
-- (void)cancelTransition
-{
-    
-}
-
 @end
