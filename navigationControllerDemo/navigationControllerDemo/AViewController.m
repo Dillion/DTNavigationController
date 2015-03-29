@@ -7,11 +7,11 @@
 //
 
 #import "AViewController.h"
-#import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
 #import "BViewController.h"
 #import "HamburgerButton.h"
-#import "DTAnimationController.h"
+
+#import "DTNavigation.h"
 
 @interface AViewController ()
 
@@ -23,7 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationController.navigationBar;
+    navigationBar.navigationBarHeight = 84.0f;
+    
     self.navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,6 +37,8 @@
 
 - (IBAction)onButtonTapped:(id)sender
 {
+    DTNavigationController *navigationController = (DTNavigationController *)self.navigationController;
+    navigationController.reverseViewOrder = NO;
     BViewController *bViewController = [[BViewController alloc] initWithNibName:@"BViewController" bundle:nil];
     [self.navigationController pushViewController:bViewController animated:YES];
 }

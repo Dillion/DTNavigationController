@@ -7,11 +7,11 @@
 //
 
 #import "BViewController.h"
-#import "UIViewController+DTNavigationItems.h"
 #import "NavigationView.h"
 #import "HamburgerButton.h"
-#import "DTAnimationController.h"
 #import "AViewController.h"
+
+#import "DTNavigation.h"
 
 @interface BViewController ()
 
@@ -36,34 +36,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)commonInit
-{
-    UIView *view = [[[UINib nibWithNibName:@"BViewController" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
-    view.frame = self.view.bounds;
-    [self.view addSubview:view];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
 - (void)onBackButtonPressed:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    DTNavigationController *navigationController = (DTNavigationController *)self.navigationController;
+    navigationController.reverseViewOrder = YES;
+    [navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

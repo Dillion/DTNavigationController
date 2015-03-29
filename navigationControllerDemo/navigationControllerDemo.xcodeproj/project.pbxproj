@@ -15,18 +15,19 @@
 		747B08881A675050005E727C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747B08871A675050005E727C /* Images.xcassets */; };
 		747B088B1A675050005E727C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 747B08891A675050005E727C /* LaunchScreen.xib */; };
 		747B08971A675050005E727C /* navigationControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08961A675050005E727C /* navigationControllerDemoTests.m */; };
-		747B08A51A67506B005E727C /* DTAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08A21A67506B005E727C /* DTAnimationController.m */; };
-		747B08A61A67506B005E727C /* DTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08A41A67506B005E727C /* DTNavigationController.m */; };
-		7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31B1A68BB31002C4347 /* DTToolbar.m */; };
-		7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F31E1A68BE33002C4347 /* DTNavigationBar.m */; };
-		7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */; };
 		7493F32B1A6910BE002C4347 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F32A1A6910BE002C4347 /* BViewController.m */; };
-		7493F3341A691FC1002C4347 /* DTNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3321A691FC1002C4347 /* DTNavigationView.m */; };
 		7493F3371A6A2D97002C4347 /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7493F3361A6A2D97002C4347 /* NavigationView.xib */; };
 		7493F33A1A6A2F54002C4347 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3391A6A2F54002C4347 /* NavigationView.m */; };
 		7493F33E1A6A359B002C4347 /* BViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7493F33D1A6A359B002C4347 /* BViewController.xib */; };
-		7493F34F1A6B66D3002C4347 /* DTInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F34E1A6B66D3002C4347 /* DTInteractionController.m */; };
 		7493F3551A6B82EB002C4347 /* HamburgerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7493F3541A6B82EB002C4347 /* HamburgerButton.m */; };
+		74979A831AC83F41004826D9 /* DTAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A731AC83F41004826D9 /* DTAnimationController.m */; };
+		74979A841AC83F41004826D9 /* DTInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A751AC83F41004826D9 /* DTInteractionController.m */; };
+		74979A851AC83F41004826D9 /* DTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A781AC83F41004826D9 /* DTNavigationBar.m */; };
+		74979A861AC83F41004826D9 /* DTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A7A1AC83F41004826D9 /* DTNavigationController.m */; };
+		74979A871AC83F41004826D9 /* DTNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A7C1AC83F41004826D9 /* DTNavigationView.m */; };
+		74979A881AC83F41004826D9 /* DTNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74979A7D1AC83F41004826D9 /* DTNavigationView.xib */; };
+		74979A891AC83F41004826D9 /* DTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A7F1AC83F41004826D9 /* DTToolbar.m */; };
+		74979A8A1AC83F41004826D9 /* UIViewController+DTNavigationItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 74979A821AC83F41004826D9 /* UIViewController+DTNavigationItems.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,29 +56,32 @@
 		747B08901A675050005E727C /* navigationControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = navigationControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		747B08951A675050005E727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747B08961A675050005E727C /* navigationControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = navigationControllerDemoTests.m; sourceTree = "<group>"; };
-		747B08A11A67506B005E727C /* DTAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAnimationController.h; sourceTree = "<group>"; };
-		747B08A21A67506B005E727C /* DTAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAnimationController.m; sourceTree = "<group>"; };
-		747B08A31A67506B005E727C /* DTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationController.h; sourceTree = "<group>"; };
-		747B08A41A67506B005E727C /* DTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationController.m; sourceTree = "<group>"; };
-		7493F31A1A68BB31002C4347 /* DTToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTToolbar.h; sourceTree = "<group>"; };
-		7493F31B1A68BB31002C4347 /* DTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTToolbar.m; sourceTree = "<group>"; };
-		7493F31D1A68BE33002C4347 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationBar.h; sourceTree = "<group>"; };
-		7493F31E1A68BE33002C4347 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationBar.m; sourceTree = "<group>"; };
-		7493F3261A68F40F002C4347 /* UIViewController+DTNavigationItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTNavigationItems.h"; sourceTree = "<group>"; };
-		7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTNavigationItems.m"; sourceTree = "<group>"; };
 		7493F3291A6910BE002C4347 /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
 		7493F32A1A6910BE002C4347 /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
-		7493F3311A691FC1002C4347 /* DTNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationView.h; sourceTree = "<group>"; };
-		7493F3321A691FC1002C4347 /* DTNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationView.m; sourceTree = "<group>"; };
 		7493F3361A6A2D97002C4347 /* NavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		7493F3381A6A2F54002C4347 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationView.h; sourceTree = "<group>"; };
 		7493F3391A6A2F54002C4347 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationView.m; sourceTree = "<group>"; };
 		7493F33D1A6A359B002C4347 /* BViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BViewController.xib; sourceTree = "<group>"; };
 		7493F3421A6A5FD4002C4347 /* navigationControllerDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "navigationControllerDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		7493F34D1A6B66D3002C4347 /* DTInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInteractionController.h; sourceTree = "<group>"; };
-		7493F34E1A6B66D3002C4347 /* DTInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTInteractionController.m; sourceTree = "<group>"; };
 		7493F3531A6B82EB002C4347 /* HamburgerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HamburgerButton.h; sourceTree = "<group>"; };
 		7493F3541A6B82EB002C4347 /* HamburgerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HamburgerButton.m; sourceTree = "<group>"; };
+		74979A721AC83F41004826D9 /* DTAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAnimationController.h; sourceTree = "<group>"; };
+		74979A731AC83F41004826D9 /* DTAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAnimationController.m; sourceTree = "<group>"; };
+		74979A741AC83F41004826D9 /* DTInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTInteractionController.h; sourceTree = "<group>"; };
+		74979A751AC83F41004826D9 /* DTInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTInteractionController.m; sourceTree = "<group>"; };
+		74979A761AC83F41004826D9 /* DTNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigation.h; sourceTree = "<group>"; };
+		74979A771AC83F41004826D9 /* DTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationBar.h; sourceTree = "<group>"; };
+		74979A781AC83F41004826D9 /* DTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationBar.m; sourceTree = "<group>"; };
+		74979A791AC83F41004826D9 /* DTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationController.h; sourceTree = "<group>"; };
+		74979A7A1AC83F41004826D9 /* DTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationController.m; sourceTree = "<group>"; };
+		74979A7B1AC83F41004826D9 /* DTNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigationView.h; sourceTree = "<group>"; };
+		74979A7C1AC83F41004826D9 /* DTNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigationView.m; sourceTree = "<group>"; };
+		74979A7D1AC83F41004826D9 /* DTNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DTNavigationView.xib; sourceTree = "<group>"; };
+		74979A7E1AC83F41004826D9 /* DTToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTToolbar.h; sourceTree = "<group>"; };
+		74979A7F1AC83F41004826D9 /* DTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTToolbar.m; sourceTree = "<group>"; };
+		74979A801AC83F41004826D9 /* DTTransitionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTransitionKeys.h; sourceTree = "<group>"; };
+		74979A811AC83F41004826D9 /* UIViewController+DTNavigationItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTNavigationItems.h"; sourceTree = "<group>"; };
+		74979A821AC83F41004826D9 /* UIViewController+DTNavigationItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTNavigationItems.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +123,11 @@
 		747B08791A675050005E727C /* navigationControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				74979A711AC83F41004826D9 /* DTNavigationController */,
 				7420F5DB1A6CB37F004E913B /* COSTouchVisualizerWindow.h */,
 				7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */,
 				7493F3531A6B82EB002C4347 /* HamburgerButton.h */,
 				7493F3541A6B82EB002C4347 /* HamburgerButton.m */,
-				747B08A01A67506B005E727C /* DTNavigationController */,
 				747B087E1A675050005E727C /* AppDelegate.h */,
 				747B087F1A675050005E727C /* AppDelegate.m */,
 				747B08811A675050005E727C /* AViewController.h */,
@@ -169,23 +173,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		747B08A01A67506B005E727C /* DTNavigationController */ = {
+		74979A711AC83F41004826D9 /* DTNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				7493F3311A691FC1002C4347 /* DTNavigationView.h */,
-				7493F3321A691FC1002C4347 /* DTNavigationView.m */,
-				7493F31D1A68BE33002C4347 /* DTNavigationBar.h */,
-				7493F31E1A68BE33002C4347 /* DTNavigationBar.m */,
-				7493F31A1A68BB31002C4347 /* DTToolbar.h */,
-				7493F31B1A68BB31002C4347 /* DTToolbar.m */,
-				747B08A11A67506B005E727C /* DTAnimationController.h */,
-				747B08A21A67506B005E727C /* DTAnimationController.m */,
-				7493F34D1A6B66D3002C4347 /* DTInteractionController.h */,
-				7493F34E1A6B66D3002C4347 /* DTInteractionController.m */,
-				747B08A31A67506B005E727C /* DTNavigationController.h */,
-				747B08A41A67506B005E727C /* DTNavigationController.m */,
-				7493F3261A68F40F002C4347 /* UIViewController+DTNavigationItems.h */,
-				7493F3271A68F40F002C4347 /* UIViewController+DTNavigationItems.m */,
+				74979A721AC83F41004826D9 /* DTAnimationController.h */,
+				74979A731AC83F41004826D9 /* DTAnimationController.m */,
+				74979A741AC83F41004826D9 /* DTInteractionController.h */,
+				74979A751AC83F41004826D9 /* DTInteractionController.m */,
+				74979A761AC83F41004826D9 /* DTNavigation.h */,
+				74979A771AC83F41004826D9 /* DTNavigationBar.h */,
+				74979A781AC83F41004826D9 /* DTNavigationBar.m */,
+				74979A791AC83F41004826D9 /* DTNavigationController.h */,
+				74979A7A1AC83F41004826D9 /* DTNavigationController.m */,
+				74979A7B1AC83F41004826D9 /* DTNavigationView.h */,
+				74979A7C1AC83F41004826D9 /* DTNavigationView.m */,
+				74979A7D1AC83F41004826D9 /* DTNavigationView.xib */,
+				74979A7E1AC83F41004826D9 /* DTToolbar.h */,
+				74979A7F1AC83F41004826D9 /* DTToolbar.m */,
+				74979A801AC83F41004826D9 /* DTTransitionKeys.h */,
+				74979A811AC83F41004826D9 /* UIViewController+DTNavigationItems.h */,
+				74979A821AC83F41004826D9 /* UIViewController+DTNavigationItems.m */,
 			);
 			path = DTNavigationController;
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 				747B088B1A675050005E727C /* LaunchScreen.xib in Resources */,
 				7493F33E1A6A359B002C4347 /* BViewController.xib in Resources */,
 				7493F3371A6A2D97002C4347 /* NavigationView.xib in Resources */,
+				74979A881AC83F41004826D9 /* DTNavigationView.xib in Resources */,
 				747B08881A675050005E727C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,20 +300,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7493F34F1A6B66D3002C4347 /* DTInteractionController.m in Sources */,
+				74979A891AC83F41004826D9 /* DTToolbar.m in Sources */,
+				74979A841AC83F41004826D9 /* DTInteractionController.m in Sources */,
 				7420F5DD1A6CB37F004E913B /* COSTouchVisualizerWindow.m in Sources */,
 				747B08831A675050005E727C /* AViewController.m in Sources */,
-				7493F3281A68F40F002C4347 /* UIViewController+DTNavigationItems.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
 				7493F33A1A6A2F54002C4347 /* NavigationView.m in Sources */,
-				7493F31F1A68BE33002C4347 /* DTNavigationBar.m in Sources */,
+				74979A851AC83F41004826D9 /* DTNavigationBar.m in Sources */,
+				74979A861AC83F41004826D9 /* DTNavigationController.m in Sources */,
 				7493F32B1A6910BE002C4347 /* BViewController.m in Sources */,
-				747B08A61A67506B005E727C /* DTNavigationController.m in Sources */,
-				747B08A51A67506B005E727C /* DTAnimationController.m in Sources */,
+				74979A8A1AC83F41004826D9 /* UIViewController+DTNavigationItems.m in Sources */,
+				74979A871AC83F41004826D9 /* DTNavigationView.m in Sources */,
 				747B087D1A675050005E727C /* main.m in Sources */,
-				7493F3341A691FC1002C4347 /* DTNavigationView.m in Sources */,
+				74979A831AC83F41004826D9 /* DTAnimationController.m in Sources */,
 				7493F3551A6B82EB002C4347 /* HamburgerButton.m in Sources */,
-				7493F31C1A68BB31002C4347 /* DTToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

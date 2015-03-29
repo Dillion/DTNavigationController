@@ -1,10 +1,25 @@
 //
 //  DTNavigationController.m
-//  navigationcontroller
 //
-//  Created by Dillion on 1/14/15.
 //  Copyright (c) 2015 Dillion. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "DTNavigationController.h"
 #import "DTToolbar.h"
@@ -14,10 +29,22 @@
 #import "DTInteractionController.h"
 
 @interface DTNavigationController ()
-
+@property (nonatomic, strong) DTAnimationController *animationController;
+@property (nonatomic, strong) DTInteractionController *interactionController;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *popGestureRecognizer;
 @end
 
 @implementation DTNavigationController
+
+#pragma mark - Lifecycle
+
+- (DTNavigationController *)commonInitWithControllers:(NSArray *)controllers
+{
+    DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
+    [navigationController setViewControllers:controllers];
+    
+    return navigationController;
+}
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController
 {
@@ -30,14 +57,6 @@
         return [self commonInitWithControllers:[self viewControllers]];
     }
     return self;
-}
-
-- (DTNavigationController *)commonInitWithControllers:(NSArray *)controllers
-{
-    DTNavigationController *navigationController = [[DTNavigationController alloc] initWithNavigationBarClass:[DTNavigationBar class] toolbarClass:[DTToolbar class]];
-    [navigationController setViewControllers:controllers];
-    
-    return navigationController;
 }
 
 - (void)viewDidLoad {
@@ -54,21 +73,6 @@
     _popGestureRecognizer.edges = UIRectEdgeLeft;
     [self.view addGestureRecognizer:_popGestureRecognizer];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - Navigation Controller Delegate
 
@@ -140,7 +144,8 @@
     switch (panGestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
         {
-            self.interactive = YES;
+            _interactive = YES;
+            self.reverseViewOrder = YES;
             [self popViewControllerAnimated:YES];
             break;
         }
@@ -157,18 +162,40 @@
             else {
                 [_interactionController cancelInteractiveTransition];
             }
-            self.interactive = NO;
+            _interactive = NO;
             break;
         }
         case UIGestureRecognizerStateCancelled:
         {
             [_interactionController cancelInteractiveTransition];
-            self.interactive = YES;
+            _interactive = YES;
             break;
         }
         default:
             break;
     }
+}
+
+#pragma mark - Getters and Setters
+
+- (void)setReverseViewOrder:(BOOL)reverseViewOrder
+{
+    _animationController.reverseViewOrder = reverseViewOrder;
+}
+
+- (BOOL)reverseViewOrder
+{
+    return _animationController.reverseViewOrder;
+}
+
+- (void)setAnimationDuration:(CGFloat)animationDuration
+{
+    _animationController.animationDuration = animationDuration;
+}
+
+- (CGFloat)animationDuration
+{
+    return _animationController.animationDuration;
 }
 
 @end

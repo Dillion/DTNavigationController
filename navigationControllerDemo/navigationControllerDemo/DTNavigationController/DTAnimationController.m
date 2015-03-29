@@ -1,24 +1,38 @@
 //
 //  DTAnimationController.m
-//  navigationcontroller
 //
-//  Created by Dillion on 1/14/15.
 //  Copyright (c) 2015 Dillion. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "DTAnimationController.h"
 #import "DTNavigationBar.h"
 #import "UIViewController+DTNavigationItems.h"
+#import "DTTransitionKeys.h"
 
 @implementation DTAnimationController
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return kTransitionAnimationDuration;
+    return self.animationDuration;
 }
 
-//  the from context is always the reference
-//  rely on the cancelled flag to set completion state
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -27,25 +41,40 @@
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     
     DTNavigationBar *navigationBar = (DTNavigationBar *)fromViewController.navigationController.navigationBar;
-    self.navigationLayer = navigationBar.layer;
+    if (!navigationBar) navigationBar = (DTNavigationBar *)toViewController.navigationController.navigationBar;
+    _navigationLayer = navigationBar.layer;
     
-    NSDictionary *toInfo = @{@"type": @(_animationType),
-                             @"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                             @"direction":UITransitionContextToViewControllerKey};
-    NSDictionary *fromInfo = @{@"type": @(_animationType),
-                               @"frame":[NSValue valueWithCGRect:fromViewController.view.bounds],
-                               @"direction":UITransitionContextFromViewControllerKey};
+    NSDictionary *toInfo = @{kDTTransitionType: @(_animationType),
+                             kDTTransitionFrame:[NSValue valueWithCGRect:fromViewController.view.bounds],
+                             kDTTransitionDirection:UITransitionContextToViewControllerKey,
+                             kDTTransitionDuration:@(duration),
+                             kDTTransitionFromClass:NSStringFromClass([fromViewController class]),
+                             kDTTransitionToClass:NSStringFromClass([toViewController class])};
+    NSDictionary *fromInfo = @{kDTTransitionType: @(_animationType),
+                               kDTTransitionFrame:[NSValue valueWithCGRect:fromViewController.view.bounds],
+                               kDTTransitionDirection:UITransitionContextFromViewControllerKey,
+                               kDTTransitionDuration:@(duration),
+                               kDTTransitionFromClass:NSStringFromClass([fromViewController class]),
+                               kDTTransitionToClass:NSStringFromClass([toViewController class])};
     
     switch (_animationType) {
         case Push:
         case Show: {
-            [[transitionContext containerView] addSubview:toViewController.view];
+            if (_reverseViewOrder) {
+                [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
+            } else {
+                [[transitionContext containerView] addSubview:toViewController.view];
+            }
         }
             break;
         case Pop:
         case PopToView:
         case PopToRoot: {
-            [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
+            if (_reverseViewOrder) {
+                [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
+            } else {
+                [[transitionContext containerView] addSubview:toViewController.view];
+            }
         }
             break;
             
@@ -53,26 +82,36 @@
             break;
     }
     
-    [toViewController prepareForTransitionWithInfo:toInfo];
-    [fromViewController prepareForTransitionWithInfo:fromInfo];
+    [toViewController dt_prepareForTransitionWithInfo:toInfo];
+    [fromViewController dt_prepareForTransitionWithInfo:fromInfo];
     
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
-        [toViewController performTransitionWithInfo:toInfo];
-        [fromViewController performTransitionWithInfo:fromInfo];
+        [toViewController dt_performTransitionWithInfo:toInfo];
+        [fromViewController dt_performTransitionWithInfo:fromInfo];
         
     } completion:^(BOOL finished) {
         
         BOOL cancelled = [transitionContext transitionWasCancelled];
         [transitionContext completeTransition:!cancelled];
         if (!cancelled) {
-            self.navigationLayer = nil;
+            _navigationLayer = nil;
             [navigationBar updateNavigationBarWithView:fromViewController.navigationView
                                                andView:toViewController.navigationView];
-            [toViewController completeTransitionWithInfo:toInfo];
+            [fromViewController dt_completeTransitionWithInfo:fromInfo];
+            [toViewController dt_completeTransitionWithInfo:toInfo];
         }
         
     }];
+}
+
+- (CGFloat)animationDuration
+{
+    if (_animationDuration <= 0) {
+        // TODO: add runtime warning here
+        return kTransitionAnimationDuration;
+    }
+    return _animationDuration;
 }
 
 @end

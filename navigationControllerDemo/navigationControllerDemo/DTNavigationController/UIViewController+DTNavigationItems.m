@@ -1,14 +1,30 @@
 //
 //  UIViewController+DTNavigationItems.m
-//  navigationControllerDemo
 //
-//  Created by Dillion on 1/16/15.
 //  Copyright (c) 2015 Dillion. All rights reserved.
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "UIViewController+DTNavigationItems.h"
 #import <objc/runtime.h>
 #import "DTAnimationController.h"
+#import "DTTransitionKeys.h"
 
 static char const *const NavigationViewKey = "NavigationViewKey";
 
@@ -24,15 +40,18 @@ static char const *const NavigationViewKey = "NavigationViewKey";
     objc_setAssociatedObject(self, NavigationViewKey, navigationView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)prepareForTransitionWithInfo:(NSDictionary *)info
+#pragma mark - Transition animation
+
+// implement the native push pop animation by default
+- (void)dt_prepareForTransitionWithInfo:(NSDictionary *)info
 {
-    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
-    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    CGRect frameRect = [[info objectForKey:kDTTransitionFrame] CGRectValue];
+    AnimationType animationType = [[info objectForKey:kDTTransitionType] unsignedIntegerValue];
     
     switch (animationType) {
         case Push:
         case Show: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
             } else {
                 frameRect.origin.x = frameRect.size.width;
                 self.view.frame = frameRect;
@@ -42,7 +61,7 @@ static char const *const NavigationViewKey = "NavigationViewKey";
         case Pop:
         case PopToView:
         case PopToRoot: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
             } else {
             }
         }
@@ -53,15 +72,15 @@ static char const *const NavigationViewKey = "NavigationViewKey";
     }
 }
 
-- (void)performTransitionWithInfo:(NSDictionary *)info
+- (void)dt_performTransitionWithInfo:(NSDictionary *)info
 {
-    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
-    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    CGRect frameRect = [[info objectForKey:kDTTransitionFrame] CGRectValue];
+    AnimationType animationType = [[info objectForKey:kDTTransitionType] unsignedIntegerValue];
     
     switch (animationType) {
         case Push:
         case Show: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
             } else {
                 frameRect.origin.x = 0;
                 self.view.frame = frameRect;
@@ -71,7 +90,7 @@ static char const *const NavigationViewKey = "NavigationViewKey";
         case Pop:
         case PopToView:
         case PopToRoot: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
                 frameRect.origin.x = frameRect.size.width;
                 self.view.frame = frameRect;
             } else {
@@ -84,15 +103,15 @@ static char const *const NavigationViewKey = "NavigationViewKey";
     }
 }
 
-- (void)completeTransitionWithInfo:(NSDictionary *)info
+- (void)dt_completeTransitionWithInfo:(NSDictionary *)info
 {
-    CGRect frameRect = [[info objectForKey:@"frame"] CGRectValue];
-    AnimationType animationType = [[info objectForKey:@"type"] unsignedIntegerValue];
+    CGRect frameRect = [[info objectForKey:kDTTransitionFrame] CGRectValue];
+    AnimationType animationType = [[info objectForKey:kDTTransitionType] unsignedIntegerValue];
     
     switch (animationType) {
         case Push:
         case Show: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
             } else {
                 frameRect.origin.x = 0;
                 self.view.frame = frameRect;
@@ -102,7 +121,7 @@ static char const *const NavigationViewKey = "NavigationViewKey";
         case Pop:
         case PopToView:
         case PopToRoot: {
-            if ([[info objectForKey:@"direction"] isEqualToString:UITransitionContextFromViewControllerKey]) {
+            if ([[info objectForKey:kDTTransitionDirection] isEqualToString:UITransitionContextFromViewControllerKey]) {
                 frameRect.origin.x = frameRect.size.width;
                 self.view.frame = frameRect;
             } else {

@@ -1,5 +1,5 @@
 //
-//  DTToolbar.m
+//  DTTransitionKeys.h
 //
 //  Copyright (c) 2015 Dillion. All rights reserved.
 //
@@ -21,8 +21,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "DTToolbar.h"
-
-@implementation DTToolbar
-
-@end
+static NSString * const kDTTransitionType = @"kDTTransitionType";
+static NSString * const kDTTransitionFrame = @"kDTTransitionFrame";
+static NSString * const kDTTransitionDirection = @"kDTTransitionDirection";
+static NSString * const kDTTransitionDuration = @"kDTTransitionDuration";
+static NSString * const kDTTransitionFromClass = @"kDTTransitionFromClass";
+static NSString * const kDTTransitionToClass = @"kDTTransitionToClass";

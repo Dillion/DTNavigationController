@@ -18,29 +18,4 @@
 }
 */
 
-- (void)commonInit
-{
-    UIView *view = [[[UINib nibWithNibName:@"NavigationView" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
-    view.frame = self.bounds;
-    [self addSubview:view];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
-
 @end
