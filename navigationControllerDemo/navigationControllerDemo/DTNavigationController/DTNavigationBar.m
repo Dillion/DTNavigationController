@@ -24,11 +24,6 @@
 #import "DTNavigationBar.h"
 #import "DTNavigationView.h"
 
-@interface DTNavigationBar() {
-    
-}
-@end
-
 @implementation DTNavigationBar
 
 #pragma mark - Lifecycle
@@ -85,8 +80,8 @@
     [super addSubview:view];
 }
 
-- (void)updateNavigationBarWithView:(DTNavigationView *)currentNavigationView
-                            andView:(DTNavigationView *)incomingNavigationView
+- (void)updateNavigationBarFromView:(DTNavigationView *)currentNavigationView
+                            toView:(DTNavigationView *)incomingNavigationView
 {
     if (currentNavigationView != incomingNavigationView) {
         [currentNavigationView removeFromSuperview];

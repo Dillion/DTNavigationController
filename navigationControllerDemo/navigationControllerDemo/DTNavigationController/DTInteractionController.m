@@ -30,6 +30,23 @@
 
 @implementation DTInteractionController
 
+- (instancetype)init
+{
+    self = [self initWithAnimationController:nil decorationLayer:nil];
+    return self;
+}
+
+- (instancetype)initWithAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+                            decorationLayer:(CALayer *)decorationLayer
+{
+    self = [super init];
+    if (self) {
+        _animationController = animationController;
+        _decorationLayer = decorationLayer;
+    }
+    return self;
+}
+
 - (void)startInteractiveTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     self.isActive = YES;
@@ -51,7 +68,7 @@
     CALayer *layer = [_transitionContext containerView].layer;
     CFTimeInterval pausedTime = [_animationController transitionDuration:_transitionContext] * _percentComplete;
     [self pauseLayer:layer atTime:pausedTime];
-    [self pauseLayer:_animationController.navigationLayer atTime:pausedTime];
+    [self pauseLayer:_decorationLayer atTime:pausedTime];
 }
 
 - (void)cancelInteractiveTransition
@@ -71,7 +88,7 @@
     
     CALayer *layer = [_transitionContext containerView].layer;
     [self resetLayerTime:layer];
-    [self resetLayerTime:_animationController.navigationLayer];
+    [self resetLayerTime:_decorationLayer];
 }
 
 - (void)reverseAnimation:(CADisplayLink *)displayLink
@@ -89,9 +106,9 @@
         self.isActive = NO;
         CALayer *layer = [_transitionContext containerView].layer;
         [self removeAnimationsRecursively:layer];
-        [self removeAnimationsRecursively:_animationController.navigationLayer];
+        [self removeAnimationsRecursively:_decorationLayer];
         [self resetLayerTime:layer];
-        [self resetLayerTime:_animationController.navigationLayer];
+        [self resetLayerTime:_decorationLayer];
         [CATransaction commit];
         
         [displayLink invalidate];

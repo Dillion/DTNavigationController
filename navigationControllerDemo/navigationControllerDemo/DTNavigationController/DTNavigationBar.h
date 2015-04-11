@@ -36,7 +36,7 @@
  *  @param currentNavigationView  Custom view retained by the outgoing view controller
  *  @param incomingNavigationView Custom view retained by the incoming view controller
  */
-- (void)updateNavigationBarWithView:(DTNavigationView *)currentNavigationView
-                            andView:(DTNavigationView *)incomingNavigationView;
+- (void)updateNavigationBarFromView:(DTNavigationView *)currentNavigationView
+                            toView:(DTNavigationView *)incomingNavigationView;
 
 @end

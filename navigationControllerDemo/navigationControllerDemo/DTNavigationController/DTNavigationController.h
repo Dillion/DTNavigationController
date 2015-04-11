@@ -23,18 +23,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class DTInteractionController;
+
 /**
  *  Custom UINavigationController subclass. During initialization, replaces the default navigation bar and tool bar with custom subclasses. Transition animations can be customized by implementing methods on the view controllers themselves, which are called by the animation or interactive controllers at the appropriate time.
  @see DTNavigationBar, DTToolbar, UIViewController+DTNavigationItems
  */
-@interface DTNavigationController : UINavigationController <UINavigationControllerDelegate>
-
-@property (nonatomic, readonly) BOOL interactive;
-/**
- *  Accessing animation controller properties
- @see DTAnimationController
- */
-@property (nonatomic) BOOL reverseViewOrder;
-@property (nonatomic) CGFloat animationDuration;
+@interface DTNavigationController : UINavigationController
 
 @end

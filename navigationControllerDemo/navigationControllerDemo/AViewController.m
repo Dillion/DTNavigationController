@@ -27,7 +27,7 @@
     navigationBar.navigationBarHeight = 84.0f;
     
     self.navigationView = [[NavigationView alloc] initWithFrame:self.navigationController.navigationBar.bounds];
-    
+    [navigationBar updateNavigationBarFromView:nil toView:self.navigationView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,13 +37,12 @@
 
 - (IBAction)onButtonTapped:(id)sender
 {
-    DTNavigationController *navigationController = (DTNavigationController *)self.navigationController;
-    navigationController.reverseViewOrder = NO;
     BViewController *bViewController = [[BViewController alloc] initWithNibName:@"BViewController" bundle:nil];
     [self.navigationController pushViewController:bViewController animated:YES];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
     
     [[self transitionCoordinator] animateAlongsideTransitionInView:self.navigationView animation:^(id<UIViewControllerTransitionCoordinatorContext> context) {
@@ -53,8 +52,10 @@
             [navigationView.navigationButton showMenu:YES animated:YES];
         }
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        DTNavigationBar *navigationBar = (DTNavigationBar *)self.navigationController.navigationBar;
         UIViewController *controller = [context viewControllerForKey:UITransitionContextToViewControllerKey];
         if ([controller isKindOfClass:[BViewController class]]) {
+            [navigationBar updateNavigationBarFromView:self.navigationView toView:controller.navigationView];
             NavigationView *navigationView = (NavigationView *)self.navigationView;
             [navigationView.navigationButton showMenu:NO animated:NO];
         }

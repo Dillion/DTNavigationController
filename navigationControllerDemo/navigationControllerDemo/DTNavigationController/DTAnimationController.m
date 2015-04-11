@@ -24,7 +24,6 @@
 #import "DTAnimationController.h"
 #import "DTNavigationBar.h"
 #import "UIViewController+DTNavigationItems.h"
-#import "DTTransitionKeys.h"
 
 @implementation DTAnimationController
 
@@ -35,74 +34,8 @@
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    NSTimeInterval duration = [self transitionDuration:transitionContext];
-    
-    DTNavigationBar *navigationBar = (DTNavigationBar *)fromViewController.navigationController.navigationBar;
-    if (!navigationBar) navigationBar = (DTNavigationBar *)toViewController.navigationController.navigationBar;
-    _navigationLayer = navigationBar.layer;
-    
-    NSDictionary *toInfo = @{kDTTransitionType: @(_animationType),
-                             kDTTransitionFrame:[NSValue valueWithCGRect:fromViewController.view.bounds],
-                             kDTTransitionDirection:UITransitionContextToViewControllerKey,
-                             kDTTransitionDuration:@(duration),
-                             kDTTransitionFromClass:NSStringFromClass([fromViewController class]),
-                             kDTTransitionToClass:NSStringFromClass([toViewController class])};
-    NSDictionary *fromInfo = @{kDTTransitionType: @(_animationType),
-                               kDTTransitionFrame:[NSValue valueWithCGRect:fromViewController.view.bounds],
-                               kDTTransitionDirection:UITransitionContextFromViewControllerKey,
-                               kDTTransitionDuration:@(duration),
-                               kDTTransitionFromClass:NSStringFromClass([fromViewController class]),
-                               kDTTransitionToClass:NSStringFromClass([toViewController class])};
-    
-    switch (_animationType) {
-        case Push:
-        case Show: {
-            if (_reverseViewOrder) {
-                [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
-            } else {
-                [[transitionContext containerView] addSubview:toViewController.view];
-            }
-        }
-            break;
-        case Pop:
-        case PopToView:
-        case PopToRoot: {
-            if (_reverseViewOrder) {
-                [[transitionContext containerView] insertSubview:toViewController.view belowSubview:fromViewController.view];
-            } else {
-                [[transitionContext containerView] addSubview:toViewController.view];
-            }
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
-    [toViewController dt_prepareForTransitionWithInfo:toInfo];
-    [fromViewController dt_prepareForTransitionWithInfo:fromInfo];
-    
-    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        [toViewController dt_performTransitionWithInfo:toInfo];
-        [fromViewController dt_performTransitionWithInfo:fromInfo];
-        
-    } completion:^(BOOL finished) {
-        
-        BOOL cancelled = [transitionContext transitionWasCancelled];
-        [transitionContext completeTransition:!cancelled];
-        if (!cancelled) {
-            _navigationLayer = nil;
-            [navigationBar updateNavigationBarWithView:fromViewController.navigationView
-                                               andView:toViewController.navigationView];
-            [fromViewController dt_completeTransitionWithInfo:fromInfo];
-            [toViewController dt_completeTransitionWithInfo:toInfo];
-        }
-        
-    }];
+    [NSException raise:NSInternalInconsistencyException
+                format:@"You must override %@ in a subclass", NSStringFromSelector(_cmd)];
 }
 
 - (CGFloat)animationDuration

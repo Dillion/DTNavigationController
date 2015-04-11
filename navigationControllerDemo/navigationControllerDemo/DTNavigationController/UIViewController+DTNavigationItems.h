@@ -28,25 +28,4 @@
 
 @property (nonatomic, strong) DTNavigationView *navigationView; // Custom view added to the navigation bar of a UINavigationController
 
-/**
- *  Override this to customize appearance before transition animation occurs.
- *
- *  @param info A dictionary passed in from -animationTransition identifying the type of transition taking place
- */
-- (void)dt_prepareForTransitionWithInfo:(NSDictionary *)info;
-
-/**
- *  Override this to apply the proper transition animation. If there is no change in animatable properties for either the incoming and outgoing view controller, the completion block in -animateTransition gets called immediately, even if there is a non-zero animation duration specified for the animation controller. Always make sure there is animation for at least one view taking place. Another caveat is that the animating view must be contained within the transition context, for other views, use UIViewControllerTransitionCoordinator's -animateAlongsideTransitionInView, or start another UIView animation block and sync the duration to the transition.
- *
- *  @param info A dictionary passed in from -animationTransition identifying the type of transition taking place
- */
-- (void)dt_performTransitionWithInfo:(NSDictionary *)info;
-
-/**
- *  Override this to customize appearance after transition animation occurs.
- *
- *  @param info A dictionary passed in from -animationTransition identifying the type of transition taking place
- */
-- (void)dt_completeTransitionWithInfo:(NSDictionary *)info;
-
 @end

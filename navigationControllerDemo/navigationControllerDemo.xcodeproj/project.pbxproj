@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7420F5DD1A6CB37F004E913B /* COSTouchVisualizerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */; };
+		746D33CC1AD77BCA0019BF31 /* PopAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 746D33CB1AD77BCA0019BF31 /* PopAnimationController.m */; };
 		747B087D1A675050005E727C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087C1A675050005E727C /* main.m */; };
 		747B08801A675050005E727C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B087F1A675050005E727C /* AppDelegate.m */; };
 		747B08831A675050005E727C /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 747B08821A675050005E727C /* AViewController.m */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		7420F5DB1A6CB37F004E913B /* COSTouchVisualizerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTouchVisualizerWindow.h; sourceTree = "<group>"; };
 		7420F5DC1A6CB37F004E913B /* COSTouchVisualizerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTouchVisualizerWindow.m; sourceTree = "<group>"; };
+		746D33CA1AD77BCA0019BF31 /* PopAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimationController.h; sourceTree = "<group>"; };
+		746D33CB1AD77BCA0019BF31 /* PopAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimationController.m; sourceTree = "<group>"; };
 		747B08771A675050005E727C /* navigationControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navigationControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		747B087B1A675050005E727C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		747B087C1A675050005E727C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,7 +82,6 @@
 		74979A7D1AC83F41004826D9 /* DTNavigationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DTNavigationView.xib; sourceTree = "<group>"; };
 		74979A7E1AC83F41004826D9 /* DTToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTToolbar.h; sourceTree = "<group>"; };
 		74979A7F1AC83F41004826D9 /* DTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTToolbar.m; sourceTree = "<group>"; };
-		74979A801AC83F41004826D9 /* DTTransitionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTransitionKeys.h; sourceTree = "<group>"; };
 		74979A811AC83F41004826D9 /* UIViewController+DTNavigationItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTNavigationItems.h"; sourceTree = "<group>"; };
 		74979A821AC83F41004826D9 /* UIViewController+DTNavigationItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTNavigationItems.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,8 @@
 				7493F3291A6910BE002C4347 /* BViewController.h */,
 				7493F32A1A6910BE002C4347 /* BViewController.m */,
 				7493F33D1A6A359B002C4347 /* BViewController.xib */,
+				746D33CA1AD77BCA0019BF31 /* PopAnimationController.h */,
+				746D33CB1AD77BCA0019BF31 /* PopAnimationController.m */,
 				7493F3381A6A2F54002C4347 /* NavigationView.h */,
 				7493F3391A6A2F54002C4347 /* NavigationView.m */,
 				7493F3361A6A2D97002C4347 /* NavigationView.xib */,
@@ -190,7 +194,6 @@
 				74979A7D1AC83F41004826D9 /* DTNavigationView.xib */,
 				74979A7E1AC83F41004826D9 /* DTToolbar.h */,
 				74979A7F1AC83F41004826D9 /* DTToolbar.m */,
-				74979A801AC83F41004826D9 /* DTTransitionKeys.h */,
 				74979A811AC83F41004826D9 /* UIViewController+DTNavigationItems.h */,
 				74979A821AC83F41004826D9 /* UIViewController+DTNavigationItems.m */,
 			);
@@ -306,6 +309,7 @@
 				747B08831A675050005E727C /* AViewController.m in Sources */,
 				747B08801A675050005E727C /* AppDelegate.m in Sources */,
 				7493F33A1A6A2F54002C4347 /* NavigationView.m in Sources */,
+				746D33CC1AD77BCA0019BF31 /* PopAnimationController.m in Sources */,
 				74979A851AC83F41004826D9 /* DTNavigationBar.m in Sources */,
 				74979A861AC83F41004826D9 /* DTNavigationController.m in Sources */,
 				7493F32B1A6910BE002C4347 /* BViewController.m in Sources */,

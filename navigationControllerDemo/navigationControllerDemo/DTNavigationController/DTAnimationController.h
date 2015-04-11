@@ -26,24 +26,8 @@
 
 static const CGFloat kTransitionAnimationDuration = 0.3f; // default duration
 
-/**
- *  Animation types correspond to the default navigation controller actions
- */
-typedef NS_ENUM(NSUInteger, AnimationType) {
-    TypeNone,
-    Push,
-    Show,           // iOS8 version of pushViewController
-    Pop,
-    PopToView,
-    PopToRoot,
-};
-
 @interface DTAnimationController : NSObject <UIViewControllerAnimatedTransitioning>
 
-@property (nonatomic) AnimationType animationType;
 @property (nonatomic) CGFloat animationDuration;
-
-@property (nonatomic) BOOL reverseViewOrder; // determines the subview ordering of the incoming view controllers. By default the incoming view is added on top
-@property (nonatomic, strong, readonly) CALayer *navigationLayer; // used by interaction controller to pause animation for the custom navigation view.
 
 @end

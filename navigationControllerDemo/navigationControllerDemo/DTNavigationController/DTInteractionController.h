@@ -29,9 +29,12 @@
 
 @interface DTInteractionController : NSObject <UIViewControllerInteractiveTransitioning>
 
-@property (nonatomic, assign) DTAnimationController *animationController;
-
+@property (nonatomic, strong, readonly) id<UIViewControllerAnimatedTransitioning> animationController;
+@property (nonatomic, strong, readonly) CALayer *decorationLayer;
 @property (nonatomic, assign, readonly) CGFloat percentComplete;
+
+- (instancetype)initWithAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+                            decorationLayer:(CALayer *)decorationLayer NS_DESIGNATED_INITIALIZER;
 
 - (void)updateInteractiveTransition:(CGFloat)percentComplete;
 - (void)cancelInteractiveTransition;
